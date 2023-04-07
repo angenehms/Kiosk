@@ -1,0 +1,43 @@
+/* 에릭마이어 reset css 를 기반으로 약간 수정을 가한 reset css 코드 */
+
+* { /* 유니버셜 셀렉터는 렌더링 지연 이슈에 대한 증거가 없으니 마음 껏 써도 된다. */
+    box-sizing: border-box; /* 넓이 높이 구할 때 편하라고 삽입 */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+    display: block;
+} /* 이게 원래 에릭마이어 것인데 html5 요소들은 레거시 요소들이 알아볼 수 있게 블럭속성을 넣어주었다. */
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
