@@ -5,13 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiosk</title>
+    <link rel="stylesheet" href="/src/style/reset.css">
+    <link rel="stylesheet" href="/src/style/style.css">
 </head>
 <body>
     
-    <main class="app">
-        <h1 class="app-title"></h1>
-        <section class="kiosk"></section>
+    <main class="kiosk">
+
+        <h1 class="title">
+            <img class="logo-img" src="./src/image/Logo.png" alt="kiosk-logo">
+        </h1>
+
+        <section class="before-payment">
+            <h2 class="ir">kiosk-screen</h2>
+            <ul class="food-list">
+                <li class="list-item">
+                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                    <strong class="item-name">Chicago Pizza</strong>
+                    <span class="item-price">22,000원</span>
+                </li>
+            </ul>
+
+            <section class="calculate">
+                <h3 class="ir">kiosk-calculate</h3>
+                <div class="balance-info">
+                    잔액 :
+                    <span class="balance">원</span>
+                </div>
+                <button class="btn-balance-return" type="button">잔액 반환</button>
+
+                <label class="ir" for="inpPut">입금할 금액 입력</label>
+                <input class="inp-put" type="number" id="inpPut" placeholder="입금할 금액 입력">
+                <button class="btn-input-money" type="button">입금</button>
+
+                <ul class="list-item-staged">
+                    <li>
+                        <button class="btn-cancel" type="button">
+                            <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                            <strong class="item-name">Chicago Pizza</strong>
+                            <span class="num-counter">1</span>
+                        </button>
+                    </li>
+                </ul>
+                <button class="btn-payment-decision" type="button"></button>
+
+            </section>
+        </section>
+
         <section class="after-payment"></section>
+
     </main>
 
     <section class="modal"></section>
