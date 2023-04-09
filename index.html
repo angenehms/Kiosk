@@ -10,13 +10,13 @@
 </head>
 <body>
     
-    <main class="kiosk">
+    <main class="app-kiosk">
 
-        <h1 class="title">
+        <h1 class="app-title">
             <img class="logo-img" src="./src/image/Logo.png" alt="kiosk-logo">
         </h1>
 
-        <section class="before-payment">
+        <section class="app-before-payment">
             <h2 class="ir">kiosk-screen</h2>
             <ul class="food-list">
                 <li class="list-item">
@@ -47,12 +47,33 @@
                         </button>
                     </li>
                 </ul>
-                <button class="btn-payment-decision" type="button"></button>
+                <button class="btn-payment-decision" type="button">결제하기</button>
 
             </section>
         </section>
 
-        <section class="after-payment"></section>
+        <section class="app-after-payment">
+            <div class="mymoney">
+                소지금 :
+                <span class="amout-mymoney">30,000원</span>
+            </div>
+
+            <div class="purchased-item"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
+                <strong class="txt-purchased">결제하신 목록</strong>
+                <ul class="list-item-staged">
+                    <li>
+                        <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                        <strong class="item-name">Chicago Pizza</strong>
+                        <span class="num-counter">1</span>
+                    </li>
+                </ul>
+            </div>
+
+            <strong class="amount-total">
+                총 결제금액 : 0원
+            </strong>
+            <button class="btn-open-modal" type="button">영수증 출력</button>
+        </section>
 
     </main>
 
