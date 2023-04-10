@@ -9,75 +9,173 @@
     <link rel="stylesheet" href="/src/style/style.css">
 </head>
 <body>
-    
-    <main class="app-kiosk">
 
-        <h1 class="app-title">
-            <img class="logo-img" src="./src/image/Logo.png" alt="kiosk-logo">
+    <main id="app"> <!-- 전체 메인 wrapper -->
+
+        <h1 class="app-title"> <!-- 로고 타이틀 -->
+            <img class="logo-img" src="./src/image/Logo.png" alt="kiosk-logo"/>
         </h1>
 
-        <section class="app-before-payment">
-            <h2 class="ir">kiosk-screen</h2>
-            <ul class="food-list">
-                <li class="list-item">
-                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                    <strong class="item-name">Chicago Pizza</strong>
-                    <span class="item-price">22,000원</span>
-                </li>
-            </ul>
+        <div class="div-section-wrapper"> <!-- 메인 바로 아래 두개 섹션 wrapper : 로고와 같은 등급 -->
 
-            <section class="calculate">
-                <h3 class="ir">kiosk-calculate</h3>
-                <div class="balance-info">
-                    잔액 :
-                    <span class="balance">원</span>
-                </div>
-                <button class="btn-balance-return" type="button">잔액 반환</button>
+            <section class="app-section-calculate"> <!-- 두개 섹션 중 하나 : 1/2 -->
 
-                <label class="ir" for="inpPut">입금할 금액 입력</label>
-                <input class="inp-put" type="number" id="inpPut" placeholder="입금할 금액 입력">
-                <button class="btn-input-money" type="button">입금</button>
+                <h2 class="ir">kiosk-screen</h2>
+                <ul class="list-item">
+                    <li>
+                        <button class="btn-item" type="button">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                            </div>
+                            <div class="div-menu-name">시카고 피자</div>
+                            <div class="div-menu-price">22000원</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-item" type="button">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/Spinach_Chicken.png" alt="Spinach_Chicken">
+                            </div>
+                            <div class="div-menu-name">시금치 통닭</div>
+                            <div class="div-menu-price">22000원</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-item" type="button">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/Buffalo_Wings.png" alt="Buffalo_Wings">
+                            </div>
+                            <div class="div-menu-name">버팔로 윙</div>
+                            <div class="div-menu-price">22000원</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-item" type="button">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/Tripe_food.png" alt="Tripe_food">
+                            </div>
+                            <div class="div-menu-name">모듬 곱창</div>
+                            <div class="div-menu-price">22000원</div>
+                        </button>
+                    </li>
+                    <li class="sold-out">
+                        <button class="btn-item" type="button">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/Shrimp_Pasta.png" alt="Shrimp_Pasta">
+                            </div>
+                            <div class="div-menu-name">새우 파스타</div>
+                            <div class="div-menu-price">22000원</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-item" type="button">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/Cabbage_Salad.png" alt="Cabbage_Salad">
+                            </div>
+                            <div class="div-menu-name">양배추 샐러드</div>
+                            <div class="div-menu-price">22000원</div>
+                        </button>
+                    </li>
+                </ul>
+
+                <section class="sub-section-calculate">
+                    <h3 class="ir">kiosk-calculate</h3>
+
+                    <div class="mymoney-info">
+                        소지금 :
+                        <span class="amount-mymoney">30,000원</span>
+                    </div>
+                    
+                    <div class="div-for-grid">
+                        <label class="ir" for="inpPut">입금할 금액 입력</label>
+                        <input class="inp-put" type="number" id="inpPut" placeholder="입금할 금액 입력">
+                        <button class="btn-input-money" type="button">입금</button>
+
+                        <div class="balance-info">
+                            잔액 :
+                            <span class="amount-balance">원</span>
+                        </div>
+                        <button class="btn-balance-return" type="button">반환</button>
+                    </div>
+                </section>
+
+            </section>
+
+            <section class="app-section-payment"> <!-- 두개 섹션 중 둘 : 2/2 -->
 
                 <ul class="list-item-staged">
                     <li>
                         <button class="btn-cancel" type="button">
                             <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                            <strong class="item-name">Chicago Pizza</strong>
+                            <strong class="item-name">시카고 피자</strong>
+                            <span class="num-counter">1</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-cancel" type="button">
+                            <img class="item-img" src="./src/image/Spinach_Chicken.png" alt="Spinach_Chicken">
+                            <strong class="item-name">시금치 통닭</strong>
+                            <span class="num-counter">1</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-cancel" type="button">
+                            <img class="item-img" src="./src/image/Tripe_food.png" alt="Tripe_food">
+                            <strong class="item-name">모듬 곱창</strong>
+                            <span class="num-counter">1</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn-cancel" type="button">
+                            <img class="item-img" src="./src/image/Cabbage_Salad.png" alt="Cabbage_Salad">
+                            <strong class="item-name">양배추 샐러드</strong>
                             <span class="num-counter">1</span>
                         </button>
                     </li>
                 </ul>
-                <button class="btn-payment-decision" type="button">결제하기</button>
+                
+                <section class="sub-section-payment">
+                    <div class="total-info">
+                        가격 : 
+                        <span class="amount-total">원</span>
+                    </div>
+
+                    <div class="div-btn-wrapper">
+                        <button class="btn-payment-decision" type="button">결제</button>
+                        <button class="btn-open-modal" type="button">영수증</button>
+                        <button class="btn-all-reset" type="button">처음으로</button>
+                    </div>
+                </section>
 
             </section>
-        </section>
-
-        <section class="app-after-payment">
-            <div class="mymoney">
-                소지금 :
-                <span class="amout-mymoney">30,000원</span>
-            </div>
-
-            <div class="purchased-item"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
-                <strong class="txt-purchased">결제하신 목록</strong>
-                <ul class="list-item-staged">
-                    <li>
-                        <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                        <strong class="item-name">Chicago Pizza</strong>
-                        <span class="num-counter">1</span>
-                    </li>
-                </ul>
-            </div>
-
-            <strong class="amount-total">
-                총 결제금액 : 0원
-            </strong>
-            <button class="btn-open-modal" type="button">영수증 출력</button>
-        </section>
+        </div>
 
     </main>
 
-    <section class="modal"></section>
+    <section class="modal ir">
+
+        <div class="modal-list"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
+            <strong class="txt-purchased">결제하신 목록</strong>
+            <ul class="list-item-staged">
+                <li>
+                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                    <strong class="item-name">Chicago Pizza</strong>
+                    <span class="num-counter">1</span>
+                </li>
+                <li>
+                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                    <strong class="item-name">Chicago Pizza</strong>
+                    <span class="num-counter">1</span>
+                </li>
+                <li>
+                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                    <strong class="item-name">Chicago Pizza</strong>
+                    <span class="num-counter">1</span>
+                </li>
+            </ul>
+        </div>
+
+    </section>
 
 </body>
 </html>
