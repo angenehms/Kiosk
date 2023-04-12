@@ -310,6 +310,9 @@
     background-color: white;
 }
 
+
+/* 모달창 리스트 스타일 ---------------------------------------- */
+
 #modal .div-modal-wrapper .list-item-staged {
     width: 100%;
     height: 60%;
@@ -323,6 +326,9 @@
     padding: 10px;
     background-color: white;
 }
+
+
+/* 모달창 정보 스타일 ---------------------------------------- */
 
 .div-modal-info {
     margin-top: 10px;
