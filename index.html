@@ -1,181 +1,199 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiosk</title>
-    <link rel="stylesheet" href="/src/style/reset.css">
-    <link rel="stylesheet" href="/src/style/style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kiosk</title>
+        <link rel="stylesheet" href="/src/style/reset.css">
+        <link rel="stylesheet" href="/src/style/style.css">
+    </head>
+    <body>
 
-    <main id="app"> <!-- 전체 메인 wrapper -->
+        <main id="app"> <!-- 전체 메인 wrapper -->
 
-        <h1 class="app-title"> <!-- 로고 타이틀 -->
-            <img class="logo-img" src="./src/image/Logo.png" alt="kiosk-logo"/>
-        </h1>
+            <h1 class="app-title"> <!-- 로고 타이틀 -->
+                <img class="logo-img" src="./src/image/Logo.png" alt="kiosk-logo"/>
+            </h1>
 
-        <div class="div-section-wrapper"> <!-- 메인 바로 아래 두개 섹션 wrapper : 로고와 같은 등급 -->
+            <div class="div-section-wrapper"> <!-- 메인 바로 아래 두개 섹션 wrapper : 로고와 같은 등급 -->
 
-            <section class="app-section-calculate"> <!-- 두개 섹션 중 하나 : 1/2 -->
+                <section class="app-section-calculate"> <!-- 두개 섹션 중 하나 : 1/2 -->
 
-                <h2 class="ir">kiosk-screen</h2>
-                <ul class="list-item">
-                    <li>
-                        <button class="btn-item" type="button">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                            </div>
-                            <div class="div-menu-name">시카고 피자</div>
-                            <div class="div-menu-price">22000원</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-item" type="button">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/Spinach_Chicken.png" alt="Spinach_Chicken">
-                            </div>
-                            <div class="div-menu-name">시금치 통닭</div>
-                            <div class="div-menu-price">22000원</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-item" type="button">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/Buffalo_Wings.png" alt="Buffalo_Wings">
-                            </div>
-                            <div class="div-menu-name">버팔로 윙</div>
-                            <div class="div-menu-price">22000원</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-item" type="button">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/Tripe_food.png" alt="Tripe_food">
-                            </div>
-                            <div class="div-menu-name">모듬 곱창</div>
-                            <div class="div-menu-price">22000원</div>
-                        </button>
-                    </li>
-                    <li class="sold-out">
-                        <button class="btn-item" type="button">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/Shrimp_Pasta.png" alt="Shrimp_Pasta">
-                            </div>
-                            <div class="div-menu-name">새우 파스타</div>
-                            <div class="div-menu-price">22000원</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-item" type="button">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/Cabbage_Salad.png" alt="Cabbage_Salad">
-                            </div>
-                            <div class="div-menu-name">양배추 샐러드</div>
-                            <div class="div-menu-price">22000원</div>
-                        </button>
-                    </li>
-                </ul>
+                    <h2 class="ir">kiosk-screen</h2>
+                    <ul class="list-item">
+                        <li>
+                            <button class="btn-item" type="button">
+                                <div class="div-menu-img">
+                                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                                </div>
+                                <div class="div-menu-name">시카고 피자</div>
+                                <div class="div-menu-price">22,000 원</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-item" type="button">
+                                <div class="div-menu-img">
+                                    <img class="item-img" src="./src/image/Spinach_Chicken.png" alt="Spinach_Chicken">
+                                </div>
+                                <div class="div-menu-name">시금치 통닭</div>
+                                <div class="div-menu-price">22,000 원</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-item" type="button">
+                                <div class="div-menu-img">
+                                    <img class="item-img" src="./src/image/Buffalo_Wings.png" alt="Buffalo_Wings">
+                                </div>
+                                <div class="div-menu-name">버팔로 윙</div>
+                                <div class="div-menu-price">22,000 원</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-item" type="button">
+                                <div class="div-menu-img">
+                                    <img class="item-img" src="./src/image/Tripe_food.png" alt="Tripe_food">
+                                </div>
+                                <div class="div-menu-name">모듬 곱창</div>
+                                <div class="div-menu-price">22,000 원</div>
+                            </button>
+                        </li>
+                        <li class="sold-out">
+                            <button class="btn-item" type="button">
+                                <div class="div-menu-img">
+                                    <img class="item-img" src="./src/image/Shrimp_Pasta.png" alt="Shrimp_Pasta">
+                                </div>
+                                <div class="div-menu-name">새우 파스타</div>
+                                <div class="div-menu-price">22,000 원</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-item" type="button">
+                                <div class="div-menu-img">
+                                    <img class="item-img" src="./src/image/Cabbage_Salad.png" alt="Cabbage_Salad">
+                                </div>
+                                <div class="div-menu-name">양배추 샐러드</div>
+                                <div class="div-menu-price">22,000 원</div>
+                            </button>
+                        </li>
+                    </ul>
 
-                <section class="sub-section-calculate">
-                    <h3 class="ir">kiosk-calculate</h3>
+                    <section class="sub-section-calculate">
+                        <h3 class="ir">kiosk-calculate</h3>
 
-                    <div class="mymoney-info">
-                        소지금 :
-                        <span class="amount-mymoney">30,000원</span>
-                    </div>
-                    
-                    <div class="div-for-grid">
-                        <label class="ir" for="inpPut">입금할 금액 입력</label>
-                        <input class="inp-put" type="number" id="inpPut" placeholder="입금할 금액 입력">
-                        <button class="btn-input-money" type="button">입금</button>
-
-                        <div class="balance-info">
-                            잔액 :
-                            <span class="amount-balance">원</span>
+                        <div class="mymoney-info">
+                            소지금 :
+                            <span class="amount-mymoney">30,000 원</span>
                         </div>
-                        <button class="btn-balance-return" type="button">반환</button>
-                    </div>
+                        
+                        <div class="div-for-grid">
+                            <label class="ir" for="inpPut">입금할 금액 입력</label>
+                            <input class="inp-put" type="number" id="inpPut" placeholder="입금할 금액 입력">
+                            <button class="btn-input-money" type="button">입금</button>
+
+                            <div class="balance-info">
+                                잔액 :
+                                <span class="amount-balance">2,000 원</span>
+                            </div>
+                            <button class="btn-balance-return" type="button">반환</button>
+                        </div>
+                    </section>
+
                 </section>
 
-            </section>
+                <section class="app-section-payment"> <!-- 두개 섹션 중 둘 : 2/2 -->
 
-            <section class="app-section-payment"> <!-- 두개 섹션 중 둘 : 2/2 -->
+                    <ul class="list-item-staged">
+                        <li class="">
+                            <button class="btn-cancel" type="button">
+                                <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
+                                <strong class="item-name">시카고 피자</strong>
+                                <span class="num-counter">1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-cancel" type="button">
+                                <img class="item-img" src="./src/image/Spinach_Chicken.png" alt="Spinach_Chicken">
+                                <strong class="item-name">시금치 통닭</strong>
+                                <span class="num-counter">1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-cancel" type="button">
+                                <img class="item-img" src="./src/image/Tripe_food.png" alt="Tripe_food">
+                                <strong class="item-name">모듬 곱창</strong>
+                                <span class="num-counter">1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn-cancel" type="button">
+                                <img class="item-img" src="./src/image/Cabbage_Salad.png" alt="Cabbage_Salad">
+                                <strong class="item-name">양배추 샐러드</strong>
+                                <span class="num-counter">1</span>
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <section class="sub-section-payment">
+                        <div class="total-info">
+                            가격 : 
+                            <span class="amount-total">88,000 원</span>
+                        </div>
 
-                <ul class="list-item-staged">
-                    <li>
-                        <button class="btn-cancel" type="button">
+                        <div class="div-btn-wrapper">
+                            <button class="btn-payment-decision" type="button">결제</button>
+                            <button class="btn-open-modal" type="button">영수증</button>
+                            <button class="btn-all-reset" type="button">처음으로</button>
+                        </div>
+                    </section>
+
+                </section>
+            </div>
+
+        </main>
+
+        <section id="modal">
+
+                <div class="div-modal-wrapper"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
+
+                    <!-- <strong class="txt-purchased">결제하신 목록</strong> -->
+                    <ul class="list-item-staged">
+                        <li class="liline">
                             <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
                             <strong class="item-name">시카고 피자</strong>
                             <span class="num-counter">1</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-cancel" type="button">
+                        </li>
+                        <li>
                             <img class="item-img" src="./src/image/Spinach_Chicken.png" alt="Spinach_Chicken">
                             <strong class="item-name">시금치 통닭</strong>
                             <span class="num-counter">1</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-cancel" type="button">
+                        </li>
+                        <li class="liline">
                             <img class="item-img" src="./src/image/Tripe_food.png" alt="Tripe_food">
                             <strong class="item-name">모듬 곱창</strong>
                             <span class="num-counter">1</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-cancel" type="button">
+                        </li>
+                        <li>
                             <img class="item-img" src="./src/image/Cabbage_Salad.png" alt="Cabbage_Salad">
                             <strong class="item-name">양배추 샐러드</strong>
                             <span class="num-counter">1</span>
-                        </button>
-                    </li>
-                </ul>
-                
-                <section class="sub-section-payment">
-                    <div class="total-info">
-                        가격 : 
-                        <span class="amount-total">원</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="div-modal-info">
+                        <div class="order-date">발 행 일 시 : 2023-04-12 오후 07:40:32</div>
+                        <div class="order-number">주 문 번 호 : 17</div>
+                        <dv class="amount-payed">결 제 금 액 : 88,000 원</dv>
+
+                        <div class="div-for-grid">
+                            <img class="bar-code-img" src="./src/image/Bar_Code.png" alt="Bar_Code">
+                            <button class="btn-close-modal">닫기</button>
+                        </div>
                     </div>
 
-                    <div class="div-btn-wrapper">
-                        <button class="btn-payment-decision" type="button">결제</button>
-                        <button class="btn-open-modal" type="button">영수증</button>
-                        <button class="btn-all-reset" type="button">처음으로</button>
-                    </div>
-                </section>
+                </div>
 
-            </section>
-        </div>
+        </section>
 
-    </main>
-
-    <section id="modal">
-
-        <div class="modal-list"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
-            <strong class="txt-purchased">결제하신 목록</strong>
-            <ul class="list-item-staged">
-                <li>
-                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                    <strong class="item-name">Chicago Pizza</strong>
-                    <span class="num-counter">1</span>
-                </li>
-                <li>
-                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                    <strong class="item-name">Chicago Pizza</strong>
-                    <span class="num-counter">1</span>
-                </li>
-                <li>
-                    <img class="item-img" src="./src/image/Chicago_Pizza.png" alt="Chicago_Pizza">
-                    <strong class="item-name">Chicago Pizza</strong>
-                    <span class="num-counter">1</span>
-                </li>
-            </ul>
-        </div>
-
-    </section>
-
-</body>
+    </body>
 </html>
