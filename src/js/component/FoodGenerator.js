@@ -1,7 +1,7 @@
 class FoodGenerator {
 
     constructor () {
-        this.itemList = document.querySelector(".app-section-calculate .list-item");
+        this.itemList = document.querySelector(".list-item");
     }
 
     async setup() {
@@ -26,28 +26,77 @@ class FoodGenerator {
 
     foodFactory(data) {
 
-        const docFrag = document.createDocumentFragment("li");
+        const docFrag = document.createDocumentFragment();
 
-        data.forEach((el) => {
-            const item = document.createElement("li");
-            const itemTemplate = `
-                <button class="btn-item" type="button" data-item="${el.name}" data-count="${el.count}" data-price="${el.cost}" data-img="${el.img}">
-                    <div class="div-menu-img">
-                        <img class="item-img" src="./src/image/${el.img}.png" alt="${el.name}">
-                    </div>
-                    <div class="div-menu-name">${el.name}</div>
-                    <div class="div-menu-price">${el.cost} 원</div>
-                </button>
-            `;
+        const btnPagePlus = document.querySelector(".btn-page-plus");
+        const btnPageMinus = document.querySelector(".btn-page-minus");
+        let currentPageNumber = 1;
 
-            item.innerHTML = itemTemplate;
-            docFrag.appendChild(item);
+        renderItem();
 
-        });
+        function pagePlusFunction () {
+            currentPageNumber++;
+            renderItem();
+        }
 
-        this.itemList.appendChild(docFrag);
+        function pageMinusFunction () {
+            currentPageNumber--;
+            renderItem();
+        }
 
+        btnPagePlus.addEventListener("click", pagePlusFunction);
+        btnPageMinus.addEventListener("click", pageMinusFunction);
+
+        function renderItem() {
+
+            document.querySelector(".list-item").innerHTML = "";
+
+            data.forEach((el) => {
+
+                const pageNumerOfItem = Math.ceil((data.indexOf(el)+1)/6);
+                const lastIndexOfItem = Math.ceil((data.length)/6);
+    
+                const item = document.createElement("li");
+                item.className = `pagination${pageNumerOfItem}`;
+
+                if ( currentPageNumber <= 1 ) {
+                    btnPageMinus.setAttribute("disabled", "");
+                } else {
+                    btnPageMinus.removeAttribute("disabled");
+                }
+
+                if ( currentPageNumber >= lastIndexOfItem ) {
+                    btnPagePlus.setAttribute("disabled", "");
+                } else {
+                    btnPagePlus.removeAttribute("disabled");
+                }
+    
+                if ( item.className === `pagination${currentPageNumber}` ) {
+    
+                    const itemTemplate = `
+                        <button class="btn-item" type="button" data-item="${el.name}" data-count="${el.count}" data-price="${el.cost}" data-img="${el.img}">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/${el.img}.png" alt="${el.name}">
+                            </div>
+                            <div class="div-menu-name">${el.name}</div>
+                            <div class="div-menu-price">${el.cost} 원</div>
+                        </button>
+                    `;
+    
+                    item.innerHTML = itemTemplate;
+                    docFrag.appendChild(item);
+
+                }
+
+                }
+            );
+
+            document.querySelector(".list-item").appendChild(docFrag);
+            
+        }
+        
     }
+    
 }
 
 export default FoodGenerator;

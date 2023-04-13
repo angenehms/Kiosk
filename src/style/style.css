@@ -110,6 +110,46 @@
     background-color: white;
 }
 
+.div-for-position {
+    position: relative;
+}
+
+.btn-page-minus,
+.btn-page-plus {
+    position: absolute;
+}
+
+.btn-page-minus {
+    top: 115px;
+    left: -25px;
+}
+
+.btn-page-plus {
+    top: 115px;
+    right: 15px;
+}
+
+.img-page-minus,
+.img-page-plus {
+    width: 40px;
+    height: 40px;
+    opacity: 0.2;
+}
+
+.img-page-minus {
+    transform: rotate(180deg);
+    position: absolute;
+    z-index: 1;
+    top: 10;
+}
+
+.img-page-plus {
+    position: absolute;
+    z-index: 1;
+    top: 10;
+
+}
+
 .app-section-calculate .list-item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -125,6 +165,7 @@
 }
 
 .app-section-calculate .list-item li {
+    height: 113.48px;
     position: relative;
     border-radius: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -292,7 +333,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
