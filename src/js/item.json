@@ -2,55 +2,55 @@
     {
         "name": "시카고피자",
         "cost": 22000,
-        "img": "Chicago_Pizza.png",
+        "img": "Chicago_Pizza",
         "count": 5
     },
     {
         "name": "버팔로윙",
         "cost": 11000,
-        "img": "Buffalo_Wing.png",
+        "img": "Buffalo_Wing",
         "count": 5
     },
     {
         "name": "양배추샐러드",
         "cost": 8500,
-        "img": "Cabbage_Salad.png",
+        "img": "Cabbage_Salad",
         "count": 5
     },
     {
         "name": "페퍼로니피자",
         "cost": 23000,
-        "img": "Cool_Cola.png",
+        "img": "Pepperoni_Pizza",
         "count": 5
     },
     {
         "name": "씨위드파스타",
         "cost": 14000,
-        "img": "Green_Cola.png",
+        "img": "Seaweed_Pasta",
         "count": 5
     },
     {
         "name": "새우파스타",
         "cost": 17000,
-        "img": "Orange_Cola.png",
+        "img": "Shrimp_Pasta",
         "count": 5
     },
     {
         "name": "시금치통닭",
         "cost": 28000,
-        "img": "Green_Cola.png",
+        "img": "Spinach_Chicken",
         "count": 5
     },
     {
         "name": "낚지볶음",
         "cost": 13000,
-        "img": "Green_Cola.png",
+        "img": "Stir_fried_Octopus",
         "count": 5
     },
     {
         "name": "모듬곱창",
         "cost": 38000,
-        "img": "Green_Cola.png",
+        "img": "Tripe_food",
         "count": 5
     }
 ]
