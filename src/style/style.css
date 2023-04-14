@@ -46,18 +46,18 @@
 .btn-input-money:hover,
 .btn-balance-return:hover,
 .btn-payment-decision:hover,
-.btn-open-modal:hover,
+.btn-open-receipt:hover,
 .btn-all-reset:hover,
-.btn-issue-recipt:hover,
-.btn-unissue-recipt:hover,
-.btn-close-modal:hover { 
+.btn-issue-receipt:hover,
+.btn-unissue-receipt:hover,
+.btn-close-receipt:hover { 
     background-color: rgb(234, 238, 191);
 }
 
 .btn-item:active,
 .btn-cancel:active,
-.btn-issue-recipt:active,
-.btn-unissue-recipt:active {
+.btn-issue-receipt:active,
+.btn-unissue-receipt:active {
     border-radius: 10px;
     outline: 3px solid rgb(233, 89, 89);
 }
@@ -65,7 +65,7 @@
 .btn-input-money:active,
 .btn-balance-return:active,
 .btn-payment-decision:active,
-.btn-open-modal:active,
+.btn-open-receipt:active,
 .btn-all-reset:active {
     border-radius: 5px;
     outline: 3px solid rgb(233, 89, 89);
@@ -73,8 +73,8 @@
 
 .btn-item,
 .btn-cancel,
-.btn-issue-recipt,
-.btn-unissue-recipt {
+.btn-issue-receipt,
+.btn-unissue-receipt {
     border-radius: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     width: 100%
@@ -83,7 +83,7 @@
 .btn-input-money,
 .btn-balance-return,
 .btn-payment-decision,
-.btn-open-modal,
+.btn-open-receipt,
 .btn-all-reset {
     border-radius: 5px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -333,7 +333,7 @@
 }
 
 .sub-section-payment .btn-payment-decision,
-.sub-section-payment .btn-open-modal,
+.sub-section-payment .btn-open-receipt,
 .sub-section-payment .btn-all-reset {
     height: 62px;
 }
@@ -341,8 +341,8 @@
 
 /* 결제완료 모달창 스타일 ---------------------------------------- */
 
-#pay-complete {
-    display: none;
+#modal-payed {
+    /* display: none; */
     position: fixed;
     top: 0;
     right: 0;
@@ -352,7 +352,7 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-#pay-complete .div-pay-complete-wrapper {
+#modal-payed .div-modal-payed-wrapper {
     position: absolute;
     width: 400px;
     height: 200px;
@@ -367,28 +367,28 @@
     background-color: white;
 }
 
-#pay-complete .div-for-grid {
+#modal-payed .div-for-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-top: 10px;
 }
 
-#pay-complete .recipt-question {
+#modal-payed .recipt-question {
     margin-bottom: 35px;
     text-align: center;
     font-size: 25px;
 }
 
-.btn-issue-recipt,
-.btn-unissue-recipt {
+.btn-issue-receipt,
+.btn-unissue-receipt {
     height: 50px;
 }
 
 
 /* 영수증 모달창 스타일 ---------------------------------------- */
 
-#modal {
+#modal-receipt {
     display: none;
     position: fixed;
     top: 0;
@@ -399,11 +399,11 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-#modal .div-modal-wrapper {
+#modal-receipt .div-modal-receipt-wrapper {
     position: absolute;
     width: 400px;
     height: 500px;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
 
@@ -417,7 +417,7 @@
 
 /* 영수증 모달창 리스트 스타일 ---------------------------------------- */
 
-#modal .div-modal-wrapper .list-item-staged {
+#modal-receipt .div-modal-receipt-wrapper .list-item-staged {
     width: 100%;
     height: 60%;
     border-radius: 20px;
@@ -425,7 +425,7 @@
 }
 
 
-#modal .div-modal-wrapper li {
+#modal-receipt .div-modal-receipt-wrapper li {
     height: 30%;
     padding: 10px;
     background-color: white;
@@ -434,7 +434,7 @@
 
 /* 영수증 모달창 정보 스타일 ---------------------------------------- */
 
-.div-modal-info {
+.div-receipt-info {
     margin-top: 10px;
     padding: 10px;
 }
@@ -456,7 +456,7 @@
 
 }
 
-#modal .div-for-grid {
+#modal-receipt .div-for-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 15px;
@@ -469,12 +469,12 @@
     height: 90px;
 }
 
-.btn-close-modal:active {
+.btn-close-receipt:active {
     border-radius: 5px;
     outline: 3px solid rgb(233, 89, 89);
 }
 
-.btn-close-modal {
+.btn-close-receipt {
     display: block;
     width: 100%;
     margin: 10px 30px 10px 0px;

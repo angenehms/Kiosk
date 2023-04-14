@@ -152,7 +152,7 @@
 
                         <div class="div-btn-wrapper">
                             <button class="btn-payment-decision" type="button">결제</button>
-                            <button class="btn-open-modal" type="button">영수증</button>
+                            <button class="btn-open-receipt" type="button">영수증</button>
                             <button class="btn-all-reset" type="button">처음으로</button>
                         </div>
                     </section>
@@ -162,22 +162,22 @@
 
         </main>
 
-        <section id="pay-complete">
+        <section id="modal-payed">
 
-            <div class="div-pay-complete-wrapper">
+            <div class="div-modal-payed-wrapper">
                 <div class="recipt-question">영수증을 발행하시겠습니까?</div>
 
                 <div class="div-for-grid">
-                    <button class="btn-issue-recipt" type="button">발행</button>
-                    <button class="btn-unissue-recipt">미발행</button>
+                    <button class="btn-issue-receipt" type="button">발행</button>
+                    <button class="btn-unissue-receipt">미발행</button>
                 </div>
             </div>
 
         </section>
 
-        <section id="modal">
+        <section id="modal-receipt">
 
-                <div class="div-modal-wrapper"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
+                <div class="div-modal-receipt-wrapper"> <!-- 구매한 목록인데 위 결제 버튼 공간(list-item-staged 공간)에서의 리스트와 같은 리스트라 클래스 명을 같게 함 -->
 
                     <!-- <strong class="txt-purchased">결제하신 목록</strong> -->
                     <ul class="list-item-staged">
@@ -203,14 +203,14 @@
                         </li>
                     </ul>
                     
-                    <div class="div-modal-info">
+                    <div class="div-receipt-info">
                         <div class="order-date">발 행 일 시 : 2023-04-12 오후 07:40:32</div>
                         <div class="order-number">주 문 번 호 : 17</div>
                         <dv class="amount-payed">결 제 금 액 : 88,000 원</dv>
 
                         <div class="div-for-grid">
                             <img class="bar-code-img" src="./src/image/Bar_Code.png" alt="Bar_Code">
-                            <button class="btn-close-modal">닫기</button>
+                            <button class="btn-close-receipt">닫기</button>
                         </div>
                     </div>
 
