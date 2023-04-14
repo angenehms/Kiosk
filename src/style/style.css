@@ -48,12 +48,16 @@
 .btn-payment-decision:hover,
 .btn-open-modal:hover,
 .btn-all-reset:hover,
+.btn-issue-recipt:hover,
+.btn-unissue-recipt:hover,
 .btn-close-modal:hover { 
     background-color: rgb(234, 238, 191);
 }
 
 .btn-item:active,
-.btn-cancel:active {
+.btn-cancel:active,
+.btn-issue-recipt:active,
+.btn-unissue-recipt:active {
     border-radius: 10px;
     outline: 3px solid rgb(233, 89, 89);
 }
@@ -68,7 +72,9 @@
 }
 
 .btn-item,
-.btn-cancel {
+.btn-cancel,
+.btn-issue-recipt,
+.btn-unissue-recipt {
     border-radius: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     width: 100%
@@ -333,7 +339,54 @@
 }
 
 
-/* 모달창 스타일 ---------------------------------------- */
+/* 결제완료 모달창 스타일 ---------------------------------------- */
+
+#pay-complete {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#pay-complete .div-pay-complete-wrapper {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: 10px solid skyblue;
+    border-radius: 30px;
+
+    padding: 40px;
+    background-color: white;
+}
+
+#pay-complete .div-for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#pay-complete .recipt-question {
+    margin-bottom: 35px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.btn-issue-recipt,
+.btn-unissue-recipt {
+    height: 50px;
+}
+
+
+/* 영수증 모달창 스타일 ---------------------------------------- */
 
 #modal {
     display: none;
@@ -362,7 +415,7 @@
 }
 
 
-/* 모달창 리스트 스타일 ---------------------------------------- */
+/* 영수증 모달창 리스트 스타일 ---------------------------------------- */
 
 #modal .div-modal-wrapper .list-item-staged {
     width: 100%;
@@ -379,7 +432,7 @@
 }
 
 
-/* 모달창 정보 스타일 ---------------------------------------- */
+/* 영수증 모달창 정보 스타일 ---------------------------------------- */
 
 .div-modal-info {
     margin-top: 10px;
