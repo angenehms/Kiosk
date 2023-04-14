@@ -56,7 +56,15 @@ class Kiosk {
 
         // 반환버튼
         this.btnReturn.addEventListener("click", () => {
-            // const balance = parseInt(this.balance.textContent.)
+            const myMoney = parseInt(this.myMoney.textContent.replaceAll(",", ""));
+            const balance = parseInt(this.balance.textContent.replaceAll(",", ""));
+
+            if ( balance > 0 ) {
+                this.myMoney.textContent = new Intl.NumberFormat().format(myMoney + balance) + " 원";
+                this.balance.textContent = new Intl.NumberFormat().format(balance - balance) + " 원";
+            } else {
+                alert("반환할 잔액이 없습니다!");
+            }
         })
 
         // 결제버튼 클릭시 영수증 발행여부 모달창 열기 기능
