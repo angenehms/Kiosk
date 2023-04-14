@@ -342,7 +342,7 @@
 /* 결제완료 모달창 스타일 ---------------------------------------- */
 
 #modal-payed {
-    /* display: none; */
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
