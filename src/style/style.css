@@ -120,19 +120,24 @@
 }
 
 .btn-page-minus {
-    top: 115px;
-    left: -25px;
+    top: 112px;
+    left: -30px;
 }
 
 .btn-page-plus {
-    top: 115px;
+    top: 112px;
     right: 15px;
+}
+
+.img-page-minus:hover,
+.img-page-plus:hover {
+    opacity: 0.5;
 }
 
 .img-page-minus,
 .img-page-plus {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     opacity: 0.2;
 }
 
