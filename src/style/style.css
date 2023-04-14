@@ -27,13 +27,16 @@
 }
 
 .div-section-wrapper {
+    margin-top: 20px;
+    background: linear-gradient(white, rgb(228, 181, 136));
+    padding-bottom: 34px;
+}
+
+.div-for-app-section-flex {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 0 28px;
-    margin-top: 40px;
-    background: linear-gradient(white, rgb(228, 181, 136));
-    padding-bottom: 70px;
 }
 
 #app .app-section-calculate,
@@ -332,6 +335,20 @@
 .sub-section-payment .btn-payment-decision,
 .sub-section-payment .btn-all-reset {
     height: 62px;
+}
+
+
+/* footer ---------------------------------------- */
+
+#contact-me {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#contact-me .copyright {
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(216, 145, 78);
 }
 
 
