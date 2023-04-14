@@ -60,15 +60,20 @@ class FoodGenerator {
                 item.className = `pagination${pageNumerOfItem}`;
 
                 if ( currentPageNumber <= 1 ) {
-                    btnPageMinus.setAttribute("disabled", "");
+                    // btnPageMinus.setAttribute("disabled", "");
+                    btnPageMinus.className = "ir"
                 } else {
-                    btnPageMinus.removeAttribute("disabled");
+                    // btnPageMinus.removeAttribute("disabled");
+                    btnPageMinus.className = "btn-page-minus"
                 }
 
                 if ( currentPageNumber >= lastIndexOfItem ) {
-                    btnPagePlus.setAttribute("disabled", "");
+                    // btnPagePlus.setAttribute("disabled", "");
+                    btnPagePlus.className = "ir"
+
                 } else {
-                    btnPagePlus.removeAttribute("disabled");
+                    // btnPagePlus.removeAttribute("disabled");
+                    btnPagePlus.className = "btn-page-plus"
                 }
     
                 if ( item.className === `pagination${currentPageNumber}` ) {
