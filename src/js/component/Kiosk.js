@@ -7,14 +7,15 @@ class Kiosk {
 
         const appPayment = document.querySelector(".app-section-payment");
         this.btnCancel = appPayment.querySelector(".btn-cancel");
-        this.btnOpenRecipt = appPayment.querySelector(".btn-open-receipt");
         this.btnPay = appPayment.querySelector(".btn-payment-decision");
         this.btnReset = appPayment.querySelector(".btn-all-reset");
 
         const appPayedModal = document.querySelector("#modal-payed");
+        this.btnIssueReceipt = appPayedModal.querySelector(".btn-issue-receipt");
+        this.btnUnissueReceipt = appPayedModal.querySelector(".btn-unissue-receipt");
 
         const appReceiptModal = document.querySelector("#modal-receipt");
-        this.btnCloseRecipt = appReceiptModal.querySelector(".btn-close-receipt");
+        this.btnClosereceipt = appReceiptModal.querySelector(".btn-close-receipt");
     }
 
     setup () {
@@ -23,13 +24,8 @@ class Kiosk {
 
     bindEvents () {
 
-        // 영수증 모달창 open 버튼
-        this.btnOpenRecipt.addEventListener("click", () => {
-            document.querySelector("#modal-receipt").style.display = "block";
-        })
-
         // 영수증 모달창 close 버튼
-        this.btnCloseRecipt.addEventListener("click", () => {
+        this.btnClosereceipt.addEventListener("click", () => {
             document.querySelector("#modal-receipt").style.display = "none";
         })
 

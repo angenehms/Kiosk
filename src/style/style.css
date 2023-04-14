@@ -46,7 +46,6 @@
 .btn-input-money:hover,
 .btn-balance-return:hover,
 .btn-payment-decision:hover,
-.btn-open-receipt:hover,
 .btn-all-reset:hover,
 .btn-issue-receipt:hover,
 .btn-unissue-receipt:hover,
@@ -65,7 +64,6 @@
 .btn-input-money:active,
 .btn-balance-return:active,
 .btn-payment-decision:active,
-.btn-open-receipt:active,
 .btn-all-reset:active {
     border-radius: 5px;
     outline: 3px solid rgb(233, 89, 89);
@@ -83,7 +81,6 @@
 .btn-input-money,
 .btn-balance-return,
 .btn-payment-decision,
-.btn-open-receipt,
 .btn-all-reset {
     border-radius: 5px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -327,13 +324,12 @@
 
 .app-section-payment .sub-section-payment .div-btn-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-top: 12px;
 }
 
 .sub-section-payment .btn-payment-decision,
-.sub-section-payment .btn-open-receipt,
 .sub-section-payment .btn-all-reset {
     height: 62px;
 }
