@@ -114,6 +114,7 @@
 #app .app-section-calculate {
     padding: 31px 27px 28px;
     background-color: white;
+    box-shadow: 10px 10px 10px rgba(130, 70, 5, 0.5);
 }
 
 .div-for-position {
@@ -262,6 +263,7 @@
 #app .app-section-payment {
     padding: 31px 27px 28px;
     background-color: white;
+    box-shadow: 10px 10px 10px rgba(130, 70, 5, 0.5);
 }
 
 .list-item-staged { /* 위 스타일 코드들에서 웬만하면 높이값들에 대한 설정을 안하고 있긴한데 이부분은 높이값 설정을 해야한다 왜냐하면 스크롤 때문이다. 높이 값을 설정을 안하면 원래는 자식들의 높이만큼 부모 컨테이너의 높이가 설정이 되잖아? 근데 얘는 그렇게 하면 안된다. 왜냐면 스크롤이 있기 때문에 높이값이 고정 되어야 그 안에서 높이가 변하지 않고 스크롤을 쓸 수 있기 때문이다. 그리고 클래스 명에서 .cont-buy 를 뺀 이유는 유아이상 오른쪽 부분의 리스트와 같이 적용되는 스타일 코드이기 때문이다. */
@@ -347,6 +349,7 @@
 
 #contact-me .copyright {
     text-decoration: none;
+    text-shadow: 1px 1px 1px rgb(130, 70, 5);
     font-size: 16px;
     color: rgb(216, 145, 78);
 }
