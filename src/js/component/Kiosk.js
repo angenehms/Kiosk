@@ -30,7 +30,18 @@ class Kiosk {
 
         // 입금버튼
         this.btnInput.addEventListener("click", () => {
-            
+            const inputMoney = parseInt(this.inputMoney.value);
+            const myMoney = parseInt(this.myMoney.textContent.replaceAll(",", ""));
+            const balance = parseInt(this.balance.textContent.replaceAll(",", ""));
+
+            if ( inputMoney <= myMoney ) {
+                this.inputMoney.value = "";
+                this.myMoney.textContent = `${myMoney - inputMoney} 원`;
+                this.balance.textContent = `${balance + inputMoney} 원`;
+            } else {
+                this.inputMoney.value = "";
+                alert("소지금이 부족합니다!");
+            }
         })
 
         // 결제버튼 클릭시 영수증 발행여부 모달창 열기 기능
