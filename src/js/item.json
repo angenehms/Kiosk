@@ -52,5 +52,41 @@
         "cost": 38000,
         "img": "Tripe_food",
         "count": 5
+    },
+    {
+        "name": "게딱지피자",
+        "cost": 5000,
+        "img": "Crab_Shell_Pizza",
+        "count": 5
+    },
+    {
+        "name": "마제소바",
+        "cost": 10000,
+        "img": "Maze_Soba",
+        "count": 5
+    },
+    {
+        "name": "피자로니떡볶이",
+        "cost": 16500,
+        "img": "Pizzaroni_Tteokbokki",
+        "count": 5
+    },
+    {
+        "name": "마늘국밥",
+        "cost": 10000,
+        "img": "Garlic_Rice_soup",
+        "count": 5
+    },
+    {
+        "name": "탄탄면",
+        "cost": 11300,
+        "img": "Tantan_Myeon",
+        "count": 5
+    },
+    {
+        "name": "초콜렛세트",
+        "cost": 26000,
+        "img": "Chocolate_Set",
+        "count": 5
     }
 ]
