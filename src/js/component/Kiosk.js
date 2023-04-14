@@ -34,14 +34,29 @@ class Kiosk {
             const myMoney = parseInt(this.myMoney.textContent.replaceAll(",", ""));
             const balance = parseInt(this.balance.textContent.replaceAll(",", ""));
 
-            if ( inputMoney <= myMoney ) {
-                this.inputMoney.value = "";
-                this.myMoney.textContent = `${myMoney - inputMoney} 원`;
-                this.balance.textContent = `${balance + inputMoney} 원`;
+            if ( inputMoney ) {
+
+                if ( inputMoney <= myMoney && inputMoney >= 0 ) {
+                    this.inputMoney.value = "";
+                    this.myMoney.textContent = new Intl.NumberFormat().format(myMoney - inputMoney) + " 원";
+                    this.balance.textContent = new Intl.NumberFormat().format(balance + inputMoney) + " 원";
+                } else if ( inputMoney > myMoney ) {
+                    this.inputMoney.value = "";
+                    alert("소지금이 부족합니다!");
+                } else {
+                    this.inputMoney.value = "";
+                    alert("올바르지 않은 입금입니다!")
+                } 
+
             } else {
                 this.inputMoney.value = "";
-                alert("소지금이 부족합니다!");
+                alert("입금액을 입력해주세요!")
             }
+        })
+
+        // 반환버튼
+        this.btnReturn.addEventListener("click", () => {
+            // const balance = parseInt(this.balance.textContent.)
         })
 
         // 결제버튼 클릭시 영수증 발행여부 모달창 열기 기능
