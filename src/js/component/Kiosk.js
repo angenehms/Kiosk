@@ -28,6 +28,15 @@ class Kiosk {
 
     bindEvents () {
 
+        const initialMyMoney = this.myMoney.textContent;
+
+        // 초기화 함수
+        function resetFunction () {
+            document.querySelector(".amount-mymoney").textContent = initialMyMoney;
+            document.querySelector(".inp-put").value = "";
+            document.querySelector(".amount-balance").textContent = "0 원";
+        }
+
         // 입금버튼
         this.btnInput.addEventListener("click", () => {
             const inputMoney = parseInt(this.inputMoney.value);
@@ -81,12 +90,20 @@ class Kiosk {
         // 영수증 발행여부 모달창에서 미발행 클릭시 해당 모달창 종료
         this.btnUnissueReceipt.addEventListener("click", () => {
             document.querySelector("#modal-payed").style.display = "none";
+            resetFunction();
         })
 
         // 영수증 모달창 close 버튼
         this.btnCloseReceipt.addEventListener("click", () => {
             document.querySelector("#modal-receipt").style.display = "none";
+            resetFunction();
         })
+
+        // 처음으로 버튼
+        this.btnReset.addEventListener("click", resetFunction);
+
+        // 결제버튼 클릭시 선택한 상품이 없으면 상품을 선택해주세요! 라는 메세지 출력
+        // 
 
     }
 }
