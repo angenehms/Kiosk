@@ -1,9 +1,10 @@
 class Kiosk {
     constructor () {
         const appCalculate = document.querySelector(".app-section-calculate");
-        this.btnItem = appCalculate.querySelector(".btn-item"); // 메뉴버튼
+        // this.btnItem = appCalculate.querySelector(".btn-item"); // 메뉴버튼
         this.btnInput = appCalculate.querySelector(".btn-input-money"); // 입금버튼
         this.btnReturn = appCalculate.querySelector(".btn-balance-return"); // 반환버튼
+        this.itemList = appCalculate.querySelector("list-item");
         this.myMoney = appCalculate.querySelector(".amount-mymoney"); // 소지금텍스트
         this.inputMoney = appCalculate.querySelector(".inp-put"); // 입금액인풋태그
         this.balance = appCalculate.querySelector(".amount-balance"); // 잔액텍스트
@@ -27,6 +28,10 @@ class Kiosk {
     }
 
     bindEvents () {
+
+        // console.log(this.btnItem); 
+        // console.log(document.querySelector(".btn-item"));
+        // 왜 위 두개의 콘솔은 다른 값을 출력시키는 거죠? 같은 것을 타게팅 하고있다고 생각하는데 ..
 
         const initialMyMoney = this.myMoney.textContent;
 

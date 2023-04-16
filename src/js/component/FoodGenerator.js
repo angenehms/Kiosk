@@ -1,7 +1,7 @@
 class FoodGenerator {
 
     constructor () {
-        this.itemList = document.querySelector(".list-item");
+        this.itemList = document.querySelector(".item-list");
     }
 
     async setup() {
@@ -49,7 +49,7 @@ class FoodGenerator {
 
         function renderItem() {
 
-            document.querySelector(".list-item").innerHTML = "";
+            document.querySelector(".item-list").innerHTML = "";
 
             data.forEach((el) => {
 
@@ -96,7 +96,7 @@ class FoodGenerator {
                 }
             );
 
-            document.querySelector(".list-item").appendChild(docFrag);
+            document.querySelector(".item-list").appendChild(docFrag);
             
         }
         
