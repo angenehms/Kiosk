@@ -1,7 +1,7 @@
 class FoodGenerator {
 
     constructor () {
-        this.itemList = document.querySelector(".item-list");
+
     }
 
     async setup() {
@@ -33,15 +33,35 @@ class FoodGenerator {
         let currentPageNumber = 1;
 
         renderItem();
+        addBtnsEventWhenRerender();
+
+        function addBtnsEventWhenRerender () {
+
+            // 돔 리랜더링 시 kiosk 스크린 아이템 버튼 이벤트 부여
+
+            const itemList = document.querySelector(".item-list");
+            const btnsItem = itemList.querySelectorAll("button");
+            btnsItem.forEach((item) => {      
+
+            item.addEventListener("click", (e) => {
+
+                const targetEl = e.currentTarget;
+                
+            })
+
+            })
+        }
 
         function pagePlusFunction () {
             currentPageNumber++;
             renderItem();
+            addBtnsEventWhenRerender();
         }
 
         function pageMinusFunction () {
             currentPageNumber--;
             renderItem();
+            addBtnsEventWhenRerender();
         }
 
         btnPagePlus.addEventListener("click", pagePlusFunction);
