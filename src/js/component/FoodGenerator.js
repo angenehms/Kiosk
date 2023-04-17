@@ -1,6 +1,10 @@
 class FoodGenerator {
 
     constructor () {
+        const appCalculate = document.querySelector(".app-section-calculate");
+        this.itemList = appCalculate.querySelector(".item-list"); // 키오스크 스크린 내 ul 태그
+        this.balance = appCalculate.querySelector(".amount-balance"); // 잔액 span 태그
+
 
     }
 
@@ -32,22 +36,35 @@ class FoodGenerator {
         const btnPageMinus = document.querySelector(".btn-page-minus");
         let currentPageNumber = 1;
 
+        const itemList = this.itemList; // 키오스크 스크린 내 ul 태그
+        const balance = this.balance; // 잔액 span 태그
+
         renderItem();
         addBtnsEventWhenRerender();
 
         function addBtnsEventWhenRerender () {
 
             // 돔 리랜더링 시 kiosk 스크린 아이템 버튼 이벤트 부여
-
-            const itemList = document.querySelector(".item-list");
             const btnsItem = itemList.querySelectorAll("button");
+
             btnsItem.forEach((item) => {      
 
-            item.addEventListener("click", (e) => {
+                item.addEventListener("click", (e) => {
 
                 const targetEl = e.currentTarget;
+                const balanceVal = parseInt(balance.textContent.replaceAll(",", ""));
+                console.log(e.currentTarget.dataset.price);
+
+                if ( balanceVal >= targetEl.dataset.price ) {
+                    balance.textContent = new Intl.NumberFormat().format(balanceVal - targetEl.dataset.price) + " 원";
+
+                    // staged 리스트에 아이템 정보리스트 추가
+
+                } else {
+                    alert("잔액이 부족합니다.");
+                }
                 
-            })
+                })
 
             })
         }
@@ -69,7 +86,7 @@ class FoodGenerator {
 
         function renderItem() {
 
-            document.querySelector(".item-list").innerHTML = "";
+            itemList.innerHTML = "";
 
             data.forEach((el) => {
 

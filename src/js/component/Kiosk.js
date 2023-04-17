@@ -4,10 +4,10 @@ class Kiosk {
         // this.btnItem = appCalculate.querySelector(".btn-item"); // 메뉴버튼
         this.btnInput = appCalculate.querySelector(".btn-input-money"); // 입금버튼
         this.btnReturn = appCalculate.querySelector(".btn-balance-return"); // 반환버튼
-        // this.itemList = appCalculate.querySelector("item-list");
+        // this.itemList = appCalculate.querySelector(".item-list");
         this.myMoney = appCalculate.querySelector(".amount-mymoney"); // 소지금텍스트
         this.inputMoney = appCalculate.querySelector(".inp-put"); // 입금액인풋태그
-        this.balance = appCalculate.querySelector(".amount-balance"); // 잔액텍스트
+        this.balance = appCalculate.querySelector(".amount-balance"); // 잔액 span 태그
 
         const appPayment = document.querySelector(".app-section-payment");
         this.btnCancel = appPayment.querySelector(".btn-cancel"); // 메뉴취소버튼
