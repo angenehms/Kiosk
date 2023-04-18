@@ -61,32 +61,45 @@ class FoodGenerator {
 
                     const targetEl = e.currentTarget;
                     const balanceVal = parseInt(balance.textContent.replaceAll(",", ""));
-                    const nodeStagedList = stagedList.querySelectorAll(".item-name"); // 노드리스트에 바로 직접 배열메서드를 쓸 수 없다! [...NodeList] 를 하던가 프로토타입을 이용하여 변환시킨 후 메서드를 사용할 수 있다.
+                    const nodeStagedMenuName = stagedList.querySelectorAll(".item-name"); // 노드리스트에 바로 직접 배열메서드를 쓸 수 없다! [...NodeList] 를 하던가 프로토타입을 이용하여 변환시킨 후 메서드를 사용할 수 있다.
+                    const nodeStagedElement = stagedList.querySelectorAll("li");
 
                     const nameOfTargetedMenu = targetEl.dataset.item; // 선택한 아이템의 메뉴 이름
-                    const arrayStagedList = [...nodeStagedList].map((item) => item.textContent); // item-list-staged 에 있는 메뉴이름을 담은 배열
+                    const arrayStagedMenuName = [...nodeStagedMenuName].map((item) => item.textContent); // item-list-staged 에 있는 메뉴이름을 담은 배열
                     // let stockOfMenu = targetEl.dataset.count; // 이렇게 돔 데이터를 변수에 담아서 조작하면 돔이 조작되지 않아! 카운트 같은 경우는 직접 돔을 잡아서 카운트를 변화시켜야 해! 아니면 변수에 담아서 조작한 결과를 다시 돔으로 옮기던가 해야해! 그럼 currentPageNumber 와 비교해서 생각해봐!
 
                     if ( balanceVal >= targetEl.dataset.price ) { // 살돈 있다
 
                         balance.textContent = new Intl.NumberFormat().format(balanceVal - targetEl.dataset.price) + " 원"; // 선택상품 가격에 대한 잔액계산
 
-                        if ( arrayStagedList.includes(nameOfTargetedMenu) ) { // staged 에 이미 있는 아이템일 경우
+                        if ( arrayStagedMenuName.includes(nameOfTargetedMenu) ) { // staged 에 이미 있는 아이템일 경우
 
                             if ( targetEl.dataset.count >= 2 ) {
 
-                                targetEl.dataset.count--;
+                                targetEl.dataset.count --;
 
-                                // staged 아이템 카운트 수량은++;
-                                // staged 업데이트된 아이템 카운트박스 내 수량 렌더링
+                                [...nodeStagedElement].forEach((item) => {
+
+                                    if ( item.querySelector(".item-name").textContent === nameOfTargetedMenu) {
+                                        item.querySelector(".num-counter").textContent ++;
+                                    }
+                                 
+                                    }
+                                )
 
                             } else if ( parseInt(targetEl.dataset.count) === 1 ) { // === 이므로 타입 엄격
 
-                                targetEl.dataset.count--;
-                                // staged 아이템 카운트 수량은++;
-                                // staged 업데이트된 아이템 카운트박스 내 수량 렌더링
-                                
-                                targetEl.parentNode.className += " sold-out" // 재고 소진시 품절 디자인 입히는 코드
+                                targetEl.dataset.count --;
+                                targetEl.parentNode.className += " sold-out"; // 재고 소진시 품절 디자인 입히는 코드
+
+                                [...nodeStagedElement].forEach((item) => {
+
+                                    if ( item.querySelector(".item-name").textContent === nameOfTargetedMenu) {
+                                        item.querySelector(".num-counter").textContent ++;
+                                    }
+                                 
+                                    }
+                                )
 
                             } else {
 
