@@ -51,20 +51,38 @@ class FoodGenerator {
 
                 item.addEventListener("click", (e) => {
 
-                const targetEl = e.currentTarget;
-                const balanceVal = parseInt(balance.textContent.replaceAll(",", ""));
-                console.log(e.currentTarget.dataset.price);
+                    const targetEl = e.currentTarget;
+                    const balanceVal = parseInt(balance.textContent.replaceAll(",", ""));
 
-                if ( balanceVal >= targetEl.dataset.price ) {
-                    balance.textContent = new Intl.NumberFormat().format(balanceVal - targetEl.dataset.price) + " 원";
+                    if ( balanceVal >= targetEl.dataset.price ) {
+                        
+                        balance.textContent = new Intl.NumberFormat().format(balanceVal - targetEl.dataset.price) + " 원";
 
-                    // staged 리스트에 아이템 정보리스트 추가
+                        // staged 리스트에 아이템 정보리스트 추가
+                        const stagedItem = document.createElement("li");
+                        const stagedItemTemplate = `
+                                <button class="btn-cancel" type="button">
+                                    <img class="item-img" src="./src/image/${item.dataset.img}.png" alt="${item.dataset.img}">
+                                    <strong class="item-name">${item.dataset.item}</strong>
+                                    <span class="num-counter">${item.dataset.count}</span>
+                                </button>
+                        `;
 
-                } else {
-                    alert("잔액이 부족합니다.");
+                        stagedItem.innerHTML = stagedItemTemplate;
+                        // docFrag.appendChild(stagedItem);
+                        document.querySelector(".item-list-staged").appendChild(stagedItem);
+
+                    } else {
+
+                        alert("잔액이 부족합니다.");
+
+                    }
+                    
                 }
-                
-                })
+
+
+                )
+
 
             })
         }

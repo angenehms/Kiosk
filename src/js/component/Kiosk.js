@@ -1,5 +1,6 @@
 class Kiosk {
     constructor () {
+        
         const appCalculate = document.querySelector(".app-section-calculate");
         // this.btnItem = appCalculate.querySelector(".btn-item"); // 메뉴버튼
         this.btnInput = appCalculate.querySelector(".btn-input-money"); // 입금버튼
@@ -108,7 +109,7 @@ class Kiosk {
         this.btnReset.addEventListener("click", resetFunction);
 
         // 결제버튼 클릭시 선택한 상품이 없으면 상품을 선택해주세요! 라는 메세지 출력
-        // 
+        // 페이지 
 
     }
 }
