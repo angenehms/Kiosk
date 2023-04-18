@@ -44,6 +44,7 @@ class Kiosk {
             document.querySelector(".amount-balance").textContent = "0 원"; // 잔액 리셋
             document.querySelector(".amount-total").textContent = "0 원"; // 총 가격 리셋
             document.querySelector(".item-list-staged").innerHTML = ""; // staged 목록 리셋
+            
             // data-count 재고 리셋함수 작성해야함
         }
 

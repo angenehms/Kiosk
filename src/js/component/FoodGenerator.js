@@ -171,6 +171,9 @@ class FoodGenerator {
                 const item = document.createElement("li");
                 item.className = `pagination${pageNumerOfItem}`;
 
+
+                // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
+
                 if ( currentPageNumber <= 1 ) {
                     // btnPageMinus.setAttribute("disabled", "");
                     btnPageMinus.className = "ir"
@@ -187,6 +190,9 @@ class FoodGenerator {
                     // btnPagePlus.removeAttribute("disabled");
                     btnPagePlus.className = "btn-page-plus"
                 }
+
+                // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
+
     
                 if ( item.className === `pagination${currentPageNumber}` ) {
     
