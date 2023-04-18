@@ -11,6 +11,7 @@ class Kiosk {
         this.balance = appCalculate.querySelector(".amount-balance"); // 잔액 span 태그
 
         const appPayment = document.querySelector(".app-section-payment");
+        // this.stagedList = appPayment.querySelector(".item-list-staged"); // staged 목록 ul 태그
         this.btnCancel = appPayment.querySelector(".btn-cancel"); // 메뉴취소버튼
         this.btnPay = appPayment.querySelector(".btn-payment-decision"); // 결제버튼
         this.btnReset = appPayment.querySelector(".btn-all-reset"); // 처음으로버튼
@@ -38,9 +39,12 @@ class Kiosk {
 
         // 초기화 함수
         function resetFunction () {
-            document.querySelector(".amount-mymoney").textContent = initialMyMoney;
-            document.querySelector(".inp-put").value = "";
-            document.querySelector(".amount-balance").textContent = "0 원";
+            document.querySelector(".amount-mymoney").textContent = initialMyMoney; // 소지금 리셋
+            document.querySelector(".inp-put").value = ""; // 입금 인풋창 리셋
+            document.querySelector(".amount-balance").textContent = "0 원"; // 잔액 리셋
+            document.querySelector(".amount-total").textContent = "0 원"; // 총 가격 리셋
+            document.querySelector(".item-list-staged").innerHTML = ""; // staged 목록 리셋
+            // data-count 재고 리셋함수 작성해야함
         }
 
         // 입금버튼
@@ -105,7 +109,7 @@ class Kiosk {
             resetFunction();
         })
 
-        // 처음으로 버튼
+        // 처음으로 버튼 // 처음으로 돌아가시겠습니까 모달창 만들까?
         this.btnReset.addEventListener("click", resetFunction);
 
     }
