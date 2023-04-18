@@ -108,9 +108,6 @@ class Kiosk {
         // 처음으로 버튼
         this.btnReset.addEventListener("click", resetFunction);
 
-        // 결제버튼 클릭시 선택한 상품이 없으면 상품을 선택해주세요! 라는 메세지 출력
-        // 페이지 
-
     }
 }
 
