@@ -14,7 +14,7 @@ class Kiosk {
         this.btnCancel = appPayment.querySelector(".btn-cancel"); // 메뉴취소버튼
         this.btnPay = appPayment.querySelector(".btn-payment-decision"); // 결제버튼
         this.btnReset = appPayment.querySelector(".btn-all-reset"); // 처음으로버튼
-        this.totalPayed = appPayment.querySelector(".amount-total") // 가격텍스트
+        this.amountTotal = appPayment.querySelector(".amount-total") // 총 가격 스팬태그
 
         const appPayedModal = document.querySelector("#modal-payed");
         this.btnIssueReceipt = appPayedModal.querySelector(".btn-issue-receipt"); // 발행버튼 

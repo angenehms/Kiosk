@@ -7,7 +7,7 @@ class FoodGenerator {
 
         const appPayment = document.querySelector(".app-section-payment");
         this.stagedList = appPayment.querySelector(".item-list-staged");
-
+        this.amountTotal = appPayment.querySelector(".amount-total") // 총 가격 span 태그
     }
 
     async setup() {
@@ -42,6 +42,7 @@ class FoodGenerator {
         const balance = this.balance; // 잔액 span 태그
 
         const stagedList = this.stagedList // item-list-staged ul 태그
+        const amountTotal = this.amountTotal // 총 가격 span 태그
 
         renderItem();
         addBtnsEventWhenRerender();
@@ -61,6 +62,8 @@ class FoodGenerator {
 
                     const targetEl = e.currentTarget;
                     const balanceVal = parseInt(balance.textContent.replaceAll(",", ""));
+                    const totalVal = parseInt(amountTotal.textContent.replaceAll(",", ""));
+                   
                     const nodeStagedMenuName = stagedList.querySelectorAll(".item-name"); // 노드리스트에 바로 직접 배열메서드를 쓸 수 없다! [...NodeList] 를 하던가 프로토타입을 이용하여 변환시킨 후 메서드를 사용할 수 있다.
                     const nodeStagedElement = stagedList.querySelectorAll("li");
 
@@ -70,7 +73,8 @@ class FoodGenerator {
 
                     if ( balanceVal >= targetEl.dataset.price ) { // 살돈 있다
 
-                        balance.textContent = new Intl.NumberFormat().format(balanceVal - targetEl.dataset.price) + " 원"; // 선택상품 가격에 대한 잔액계산
+                        balance.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(targetEl.dataset.price)) + " 원"; // 선택상품 가격에 대한 잔액계산
+                        amountTotal.textContent = new Intl.NumberFormat().format(totalVal + parseInt(targetEl.dataset.price)) + " 원" // + 연산은 - 연산보다 더 엄격히 타입을 분명히 해야한다. + 연산은 텍스트 끼리 합쳐주는 연산도 가능하기 떄문에 숫자인지 스트링인지 명시해주어야한다.
 
                         if ( arrayStagedMenuName.includes(nameOfTargetedMenu) ) { // staged 에 이미 있는 아이템일 경우
 
