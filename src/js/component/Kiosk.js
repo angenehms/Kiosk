@@ -37,7 +37,7 @@ class Kiosk {
 
         // console.log(this.btnItem); 
         // console.log(document.querySelector(".btn-item"));
-        // 왜 위 두개의 콘솔은 다른 값을 출력시키는 거죠? 같은 것을 타게팅 하고있다고 생각하는데 ..
+        // 왜 위 두개의 콘솔은 다른 값을 출력시키는 거지? 같은 것을 타게팅 하고있다고 생각하는데 ..
 
         const initialMyMoney = this.myMoney.textContent;
 
@@ -50,7 +50,7 @@ class Kiosk {
             document.querySelector(".amount-total").textContent = "0 원"; // 총 가격 리셋
             document.querySelector(".item-list-staged").innerHTML = ""; // staged 목록 리셋
             
-            // data-count 재고 리셋함수 작성해야함
+            // data-count 재고 리셋함수 작성해야함 : 버그관련으로 인한 보류중
         }
 
         // 입금버튼
@@ -186,8 +186,10 @@ class Kiosk {
             resetFunction();
         })
 
-        // 처음으로 버튼 // 처음으로 돌아가시겠습니까 모달창 만들까?
-        this.btnReset.addEventListener("click", resetFunction);
+        // 처음으로 버튼 // 처음으로 돌아가시겠습니까?
+        this.btnReset.addEventListener("click", () => {
+            document.querySelector("#modal-reset").style.display = "block";
+        });
 
     }
 }
