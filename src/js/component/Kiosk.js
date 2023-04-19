@@ -25,6 +25,10 @@ class Kiosk {
         const appReceiptModal = document.querySelector("#modal-receipt");
         this.btnCloseReceipt = appReceiptModal.querySelector(".btn-close-receipt"); // 닫기버튼
 
+        const appResetModal = document.querySelector("#modal-reset");
+        this.btnConfirmReset = appResetModal.querySelector(".btn-reset-confirm");
+        this.btnCancelReset = appResetModal.querySelector(".btn-reset-cancel");
+
     }
 
     setup () {
@@ -189,6 +193,17 @@ class Kiosk {
         // 처음으로 버튼 // 처음으로 돌아가시겠습니까?
         this.btnReset.addEventListener("click", () => {
             document.querySelector("#modal-reset").style.display = "block";
+        });
+
+        // 리셋 모달창 처음으로 버튼
+        this.btnConfirmReset.addEventListener("click", () => {
+            document.querySelector("#modal-reset").style.display = "none";
+            resetFunction();
+        });
+
+        // 리셋 모달창 닫기 버튼
+        this.btnCancelReset.addEventListener("click", () => {
+            document.querySelector("#modal-reset").style.display = "none";
         });
 
     }
