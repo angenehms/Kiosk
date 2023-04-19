@@ -1,4 +1,5 @@
 class Kiosk {
+    
     constructor () {
         
         const appCalculate = document.querySelector(".app-section-calculate");
@@ -23,10 +24,13 @@ class Kiosk {
 
         const appReceiptModal = document.querySelector("#modal-receipt");
         this.btnCloseReceipt = appReceiptModal.querySelector(".btn-close-receipt"); // 닫기버튼
+
     }
 
     setup () {
+
         this.bindEvents();
+
     }
 
     bindEvents () {
@@ -39,6 +43,7 @@ class Kiosk {
 
         // 초기화 함수
         function resetFunction () {
+
             document.querySelector(".amount-mymoney").textContent = initialMyMoney; // 소지금 리셋
             document.querySelector(".inp-put").value = ""; // 입금 인풋창 리셋
             document.querySelector(".amount-balance").textContent = "0 원"; // 잔액 리셋
@@ -87,8 +92,37 @@ class Kiosk {
             }
         })
 
-        // 결제버튼 클릭시 영수증 발행여부 모달창 열기 기능
+        // 결제버튼 클릭시 영수증 발행여부 모달창 열기 기능 && 영수증 모달에 리스트 뿌리기
         this.btnPay.addEventListener("click", () => {
+
+            const StagedItem = document.querySelectorAll(".app-section-payment .item-list-staged li");
+
+            // staged 리스트 없으면 결제할 상품을 선택해주세요! 창 띄우기 
+
+            // 영수증 모달에 staged 리스트 뿌리기
+            StagedItem.forEach((item) => {
+
+                const modalStagedList = document.querySelector("#modal-receipt .item-list-staged");
+                const modalStagedItem = document.createElement("li");
+                const imgOfModalStagedItem = item.querySelector(".item-img").getAttribute("src");
+                const imgAltOfModalStagedItem = item.querySelector(".item-img").getAttribute("alt");
+                const nameOfModalStagedItem = item.querySelector(".item-name").textContent;
+                const countOfModalStagedItem = item.querySelector(".num-counter").textContent;
+
+                const modalStagedItemTemplate = `
+                    <img class="item-img" src="${imgOfModalStagedItem}" alt="${imgAltOfModalStagedItem}">
+                    <strong class="item-name">${nameOfModalStagedItem}</strong>
+                    <span class="num-counter">${countOfModalStagedItem}</span>
+                `
+
+                modalStagedItem.innerHTML = modalStagedItemTemplate;
+                modalStagedList.appendChild(modalStagedItem);
+            })
+
+            // 발행일시 현재시간 출력해야함
+            // 주문번호 난수 출력해야함
+            // 결제금액 데이터 받아와야함
+
             document.querySelector("#modal-payed").style.display = "block";
         })
 
