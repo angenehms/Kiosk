@@ -156,7 +156,16 @@ class FoodGenerator {
 
                             if ( targetEl.dataset.count >= 2 ) {
 
-                                targetEl.dataset.count --;
+                                // targetEl.dataset.count --;
+
+                                data.forEach((element) => {
+                                    if ( element.name === targetEl.dataset.item ) {
+
+                                        targetEl.dataset.count --;
+                                        element.count --;
+
+                                    }
+                                });
 
                                 [...nodeStagedElement].forEach((item) => {
 
@@ -169,13 +178,25 @@ class FoodGenerator {
 
                             } else if ( parseInt(targetEl.dataset.count) === 1 ) { // === 이므로 타입 엄격
 
-                                targetEl.dataset.count --;
+                                // targetEl.dataset.count --;
+
+                                data.forEach((element) => {
+                                    if ( element.name === targetEl.dataset.item ) {
+
+                                        targetEl.dataset.count --;
+                                        element.count --;
+                                        
+                                    }
+                                });
+
                                 targetEl.parentNode.className += " sold-out"; // 재고 소진시 품절 디자인 입히는 코드
 
                                 [...nodeStagedElement].forEach((item) => {
 
                                     if ( item.querySelector(".item-name").textContent === nameOfTargetedMenu) {
+
                                         item.querySelector(".num-counter").textContent ++;
+
                                     }
                                  
                                     }
@@ -189,7 +210,18 @@ class FoodGenerator {
 
                         } else { // staged 에 없는 아이템일 경우
 
-                            targetEl.dataset.count --;
+                            // targetEl.dataset.count --;
+
+                            data.forEach((element) => {
+
+                                if ( element.name === targetEl.dataset.item ) {
+
+                                    targetEl.dataset.count --;
+                                    element.count --;
+
+                                }
+
+                            });
 
                             // staged 리스트에 아이템 정보리스트 추가
                             const stagedItem = document.createElement("li");
@@ -203,6 +235,7 @@ class FoodGenerator {
 
                             stagedItem.innerHTML = stagedItemTemplate;
                             // docFrag.appendChild(stagedItem);
+
                             document.querySelector(".item-list-staged").appendChild(stagedItem);
 
                         }
