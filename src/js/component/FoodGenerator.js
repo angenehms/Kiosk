@@ -47,6 +47,82 @@ class FoodGenerator {
         renderItem();
         addBtnsEventWhenRerender();
 
+
+        function renderItem() {
+
+            itemList.innerHTML = "";
+
+            data.forEach((el) => {
+
+                const pageNumerOfItem = Math.ceil((data.indexOf(el)+1)/6);
+                const lastIndexOfItem = Math.ceil((data.length)/6);
+    
+                const item = document.createElement("li");
+                item.className = `pagination${pageNumerOfItem}`;
+
+                if ( item.className === `pagination${currentPageNumber}` ) {
+    
+                    const itemTemplate = `
+                        <button class="btn-item" type="button" data-item="${el.name}" data-count="${el.count}" data-price="${el.cost}" data-img="${el.img}">
+                            <div class="div-menu-img">
+                                <img class="item-img" src="./src/image/${el.img}.png" alt="${el.name}">
+                            </div>
+                            <div class="div-menu-name">${el.name}</div>
+                            <div class="div-menu-price">${el.cost} 원</div>
+                        </button>
+                    `;
+    
+                    item.innerHTML = itemTemplate;
+                    docFrag.appendChild(item);
+
+                }
+
+                // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
+
+                if ( currentPageNumber <= 1 ) {
+                    // btnPageMinus.setAttribute("disabled", "");
+                    btnPageMinus.className = "ir"
+                } else {
+                    // btnPageMinus.removeAttribute("disabled");
+                    btnPageMinus.className = "btn-page-minus"
+                }
+
+                if ( currentPageNumber >= lastIndexOfItem ) {
+                    // btnPagePlus.setAttribute("disabled", "");
+                    btnPagePlus.className = "ir"
+
+                } else {
+                    // btnPagePlus.removeAttribute("disabled");
+                    btnPagePlus.className = "btn-page-plus"
+                }
+
+                // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
+
+                }
+            );
+
+            document.querySelector(".item-list").appendChild(docFrag);
+            
+        }
+
+
+        function pagePlusFunction () {
+            currentPageNumber++;
+            renderItem();
+            addBtnsEventWhenRerender();
+        }
+
+
+        function pageMinusFunction () {
+            currentPageNumber--;
+            renderItem();
+            addBtnsEventWhenRerender();
+        }
+
+        btnPagePlus.addEventListener("click", pagePlusFunction);
+        btnPageMinus.addEventListener("click", pageMinusFunction);
+
+
         function addBtnsEventWhenRerender () {
 
             // 돔 리랜더링 시 kiosk 스크린 아이템 버튼 이벤트 부여
@@ -142,81 +218,7 @@ class FoodGenerator {
                 )
 
             })
-        }
-
-        function pagePlusFunction () {
-            currentPageNumber++;
-            renderItem();
-            addBtnsEventWhenRerender();
-        }
-
-        function pageMinusFunction () {
-            currentPageNumber--;
-            renderItem();
-            addBtnsEventWhenRerender();
-        }
-
-        btnPagePlus.addEventListener("click", pagePlusFunction);
-        btnPageMinus.addEventListener("click", pageMinusFunction);
-
-        function renderItem() {
-
-            itemList.innerHTML = "";
-
-            data.forEach((el) => {
-
-                const pageNumerOfItem = Math.ceil((data.indexOf(el)+1)/6);
-                const lastIndexOfItem = Math.ceil((data.length)/6);
-    
-                const item = document.createElement("li");
-                item.className = `pagination${pageNumerOfItem}`;
-
-
-                // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
-
-                if ( currentPageNumber <= 1 ) {
-                    // btnPageMinus.setAttribute("disabled", "");
-                    btnPageMinus.className = "ir"
-                } else {
-                    // btnPageMinus.removeAttribute("disabled");
-                    btnPageMinus.className = "btn-page-minus"
-                }
-
-                if ( currentPageNumber >= lastIndexOfItem ) {
-                    // btnPagePlus.setAttribute("disabled", "");
-                    btnPagePlus.className = "ir"
-
-                } else {
-                    // btnPagePlus.removeAttribute("disabled");
-                    btnPagePlus.className = "btn-page-plus"
-                }
-
-                // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
-
-    
-                if ( item.className === `pagination${currentPageNumber}` ) {
-    
-                    const itemTemplate = `
-                        <button class="btn-item" type="button" data-item="${el.name}" data-count="${el.count}" data-price="${el.cost}" data-img="${el.img}">
-                            <div class="div-menu-img">
-                                <img class="item-img" src="./src/image/${el.img}.png" alt="${el.name}">
-                            </div>
-                            <div class="div-menu-name">${el.name}</div>
-                            <div class="div-menu-price">${el.cost} 원</div>
-                        </button>
-                    `;
-    
-                    item.innerHTML = itemTemplate;
-                    docFrag.appendChild(item);
-
-                }
-
-                }
-            );
-
-            document.querySelector(".item-list").appendChild(docFrag);
-            
-        }
+        }    
         
     }
     
