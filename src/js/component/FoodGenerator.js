@@ -1,13 +1,25 @@
 class FoodGenerator {
 
     constructor () {
+
         const appCalculate = document.querySelector(".app-section-calculate");
         this.itemList = appCalculate.querySelector(".item-list"); // 키오스크 스크린 내 ul 태그
         this.balance = appCalculate.querySelector(".amount-balance"); // 잔액 span 태그
+        this.myMoney = appCalculate.querySelector(".amount-mymoney"); // 소지금텍스트
 
         const appPayment = document.querySelector(".app-section-payment");
         this.stagedList = appPayment.querySelector(".item-list-staged");
         this.amountTotal = appPayment.querySelector(".amount-total") // 총 가격 span 태그
+
+        const appPayedModal = document.querySelector("#modal-payed");
+        this.btnUnissueReceipt = appPayedModal.querySelector(".btn-unissue-receipt"); // 미발행버튼
+
+        const appReceiptModal = document.querySelector("#modal-receipt");
+        this.btnCloseReceipt = appReceiptModal.querySelector(".btn-close-receipt"); // 닫기버튼
+
+        const appResetModal = document.querySelector("#modal-reset");
+        this.btnResetConfirm = appResetModal.querySelector(".btn-reset-confirm");
+
     }
 
     async setup() {
@@ -43,6 +55,13 @@ class FoodGenerator {
 
         const stagedList = this.stagedList // item-list-staged ul 태그
         const amountTotal = this.amountTotal // 총 가격 span 태그
+
+        const initialMyMoney = this.myMoney.textContent;
+
+        const initialDataStock = [];
+        data.forEach((item) => { // 처음에 map 을 이용해서 만들어보려고 했는데 콘솔에 undefined 가 찍히는데 또 forEach 는 돼서 forEach 로 함 ..! 왜 map 은 안될까?
+            initialDataStock.push({name: item.name, count:item.count});
+        })
 
         renderItem();
         addBtnsEventWhenRerender();
@@ -104,23 +123,6 @@ class FoodGenerator {
             document.querySelector(".item-list").appendChild(docFrag);
             
         }
-
-
-        function pagePlusFunction () {
-            currentPageNumber++;
-            renderItem();
-            addBtnsEventWhenRerender();
-        }
-
-
-        function pageMinusFunction () {
-            currentPageNumber--;
-            renderItem();
-            addBtnsEventWhenRerender();
-        }
-
-        btnPagePlus.addEventListener("click", pagePlusFunction);
-        btnPageMinus.addEventListener("click", pageMinusFunction);
 
 
         function addBtnsEventWhenRerender () {
@@ -252,6 +254,69 @@ class FoodGenerator {
 
             })
         }    
+
+
+        function pagePlusFunction () {
+            currentPageNumber++;
+            renderItem();
+            addBtnsEventWhenRerender();
+        }
+
+
+        function pageMinusFunction () {
+            currentPageNumber--;
+            renderItem();
+            addBtnsEventWhenRerender();
+        }
+
+        btnPagePlus.addEventListener("click", pagePlusFunction);
+        btnPageMinus.addEventListener("click", pageMinusFunction);
+
+
+        // 초기화 함수
+        function resetFunction () {
+
+            document.querySelector(".amount-mymoney").textContent = initialMyMoney; // 소지금 리셋
+            document.querySelector(".inp-put").value = ""; // 입금 인풋창 리셋
+            document.querySelector(".amount-balance").textContent = "0 원"; // 잔액 리셋
+            document.querySelector(".amount-total").textContent = "0 원"; // 총 가격 리셋
+            document.querySelector(".item-list-staged").innerHTML = ""; // staged 목록 리셋
+
+            data.forEach((item) => {
+
+                initialDataStock.forEach((element) => {
+
+                    if ( element.name === item.name ) {
+
+                        item.count = element.count;
+
+                    }
+                })
+
+            })
+
+            renderItem();
+            addBtnsEventWhenRerender();
+
+        }
+
+        // 영수증 발행여부 모달창에서 미발행 클릭시 해당 모달창 종료
+        this.btnUnissueReceipt.addEventListener("click", () => {
+            document.querySelector("#modal-payed").style.display = "none";
+            resetFunction();
+        })
+
+        // 영수증 모달창 close 버튼
+        this.btnCloseReceipt.addEventListener("click", () => {
+            document.querySelector("#modal-receipt").style.display = "none";
+            resetFunction();
+        })
+
+          // 리셋 모달창 처음으로 버튼
+          this.btnResetConfirm.addEventListener("click", () => {
+            document.querySelector("#modal-reset").style.display = "none";
+            resetFunction();
+        });
         
     }
     

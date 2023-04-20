@@ -6,7 +6,7 @@ class Kiosk {
         // this.btnItem = appCalculate.querySelector(".btn-item"); // 메뉴버튼
         this.btnInput = appCalculate.querySelector(".btn-input-money"); // 입금버튼
         this.btnReturn = appCalculate.querySelector(".btn-balance-return"); // 반환버튼
-        // this.itemList = appCalculate.querySelector(".item-list");
+        this.itemList = appCalculate.querySelector(".item-list");
         this.myMoney = appCalculate.querySelector(".amount-mymoney"); // 소지금텍스트
         this.inputMoney = appCalculate.querySelector(".inp-put"); // 입금액인풋태그
         this.balance = appCalculate.querySelector(".amount-balance"); // 잔액 span 태그
@@ -42,20 +42,6 @@ class Kiosk {
         // console.log(this.btnItem); 
         // console.log(document.querySelector(".btn-item"));
         // 왜 위 두개의 콘솔은 다른 값을 출력시키는 거지? 같은 것을 타게팅 하고있다고 생각하는데 ..
-
-        const initialMyMoney = this.myMoney.textContent;
-
-        // 초기화 함수
-        function resetFunction () {
-
-            document.querySelector(".amount-mymoney").textContent = initialMyMoney; // 소지금 리셋
-            document.querySelector(".inp-put").value = ""; // 입금 인풋창 리셋
-            document.querySelector(".amount-balance").textContent = "0 원"; // 잔액 리셋
-            document.querySelector(".amount-total").textContent = "0 원"; // 총 가격 리셋
-            document.querySelector(".item-list-staged").innerHTML = ""; // staged 목록 리셋
-            
-            // data-count 재고 리셋함수 작성해야함 : 버그관련으로 인한 보류중
-        }
 
         // 입금버튼
         this.btnInput.addEventListener("click", () => {
@@ -178,27 +164,9 @@ class Kiosk {
             document.querySelector("#modal-receipt").style.display = "block";
         })
 
-        // 영수증 발행여부 모달창에서 미발행 클릭시 해당 모달창 종료
-        this.btnUnissueReceipt.addEventListener("click", () => {
-            document.querySelector("#modal-payed").style.display = "none";
-            resetFunction();
-        })
-
-        // 영수증 모달창 close 버튼
-        this.btnCloseReceipt.addEventListener("click", () => {
-            document.querySelector("#modal-receipt").style.display = "none";
-            resetFunction();
-        })
-
         // 처음으로 버튼 // 처음으로 돌아가시겠습니까?
         this.btnReset.addEventListener("click", () => {
             document.querySelector("#modal-reset").style.display = "block";
-        });
-
-        // 리셋 모달창 처음으로 버튼
-        this.btnResetConfirm.addEventListener("click", () => {
-            document.querySelector("#modal-reset").style.display = "none";
-            resetFunction();
         });
 
         // 리셋 모달창 닫기 버튼
