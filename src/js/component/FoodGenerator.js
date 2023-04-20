@@ -233,8 +233,8 @@ class FoodGenerator {
                                     <strong class="item-name">${item.dataset.item}</strong>
                                     <div class="div-for-btn-stock-position">
                                         <span class="num-counter">1</span>
-                                        <button class="btn-stock-plus">+</button>
-                                        <button class="btn-stock-minus">-</button>
+                                        <button class="btn-stock-plus" type="button">+</button>
+                                        <button class="btn-stock-minus" type="button">-</button>
                                     <div>
                                 </div>
                                 `;
