@@ -292,13 +292,19 @@ class FoodGenerator {
 
             const targetElParentElement = e.currentTarget.parentElement.parentElement
             const nameOfTargetEl = targetElParentElement.querySelector(".item-name").textContent;
-
-            // 클릭시 잔액, 총결제금액 변동처리 해야함
+            const balanceTag = document.querySelector(".amount-balance");
+            const balanceVal = parseInt(document.querySelector(".amount-balance").textContent.replaceAll(",", ""));
+            const amountTotalTag =  document.querySelector(".amount-total");
+            const amountTotalVal = parseInt(document.querySelector(".amount-total").textContent.replaceAll(",", ""));
     
             data.forEach((item) => { // count 는 정수만 와야함 : 상식상 상품 수가 소수인 경우는 이해되지 않음.
 
                 if ( nameOfTargetEl === item.name ) {
-
+                    
+                    // 클릭시 잔액, 총결제금액 변동처리
+                    balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
+                    amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";
+                    
                     if ( item.count >= 2 ) {
 
                         item.count --;
@@ -328,8 +334,11 @@ class FoodGenerator {
 
             const targetElParentElement = e.currentTarget.parentElement.parentElement
             const nameOfTargetEl = targetElParentElement.querySelector(".item-name").textContent;
+            const balanceTag = document.querySelector(".amount-balance");
+            const balanceVal = parseInt(document.querySelector(".amount-balance").textContent.replaceAll(",", ""));
+            const amountTotalTag =  document.querySelector(".amount-total");
+            const amountTotalVal = parseInt(document.querySelector(".amount-total").textContent.replaceAll(",", ""));
 
-            // 클릭시 잔액, 총결제금액 변동처리 해야함
             // 카운트 고려해서 품절표시 지워야함
 
             data.forEach((item) => { // count 는 정수만 와야함 : 상식상 상품 수가 소수인 경우는 이해되지 않음.
@@ -339,6 +348,10 @@ class FoodGenerator {
                     if ( element.name === item.name ) {
 
                         if ( nameOfTargetEl === item.name ) {
+
+                            // 클릭시 잔액, 총결제금액 변동처리
+                            balanceTag.textContent = new Intl.NumberFormat().format(balanceVal + parseInt(item.cost)) + " 원";
+                            amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal - parseInt(item.cost)) + " 원";
 
                             if ( item.count < element.count - 1 ) {
         
