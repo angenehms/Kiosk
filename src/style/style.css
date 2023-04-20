@@ -45,7 +45,8 @@
 }
 
 .btn-item:hover,
-.btn-cancel:hover,
+.btn-stock-plus:hover,
+.btn-stock-minus:hover,
 .btn-input-money:hover,
 .btn-balance-return:hover,
 .btn-payment-decision:hover,
@@ -59,7 +60,6 @@
 }
 
 .btn-item:active,
-.btn-cancel:active,
 .btn-issue-receipt:active,
 .btn-unissue-receipt:active,
 .btn-reset-confirm:active,
@@ -76,8 +76,13 @@
     outline: 3px solid rgb(233, 89, 89);
 }
 
+.btn-stock-plus:active,
+.btn-stock-minus:active {
+    border-radius: 3px;
+    outline: 2px solid rgb(233, 89, 89);
+}
+
 .btn-item,
-.btn-cancel,
 .btn-issue-receipt,
 .btn-unissue-receipt,
 .btn-reset-confirm,
@@ -87,12 +92,25 @@
     width: 100%
 }
 
+.div-for-btn-css-design {
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); */
+    width: 100%
+}
+
 .btn-input-money,
 .btn-balance-return,
 .btn-payment-decision,
 .btn-all-reset {
     border-radius: 5px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+.btn-stock-plus,
+.btn-stock-minus {
+    border-radius: 3px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
     width: 100%;
 }
 
@@ -274,6 +292,7 @@
 
 .item-list-staged { /* 위 스타일 코드들에서 웬만하면 높이값들에 대한 설정을 안하고 있긴한데 이부분은 높이값 설정을 해야한다 왜냐하면 스크롤 때문이다. 높이 값을 설정을 안하면 원래는 자식들의 높이만큼 부모 컨테이너의 높이가 설정이 되잖아? 근데 얘는 그렇게 하면 안된다. 왜냐면 스크롤이 있기 때문에 높이값이 고정 되어야 그 안에서 높이가 변하지 않고 스크롤을 쓸 수 있기 때문이다. 그리고 클래스 명에서 .cont-buy 를 뺀 이유는 유아이상 오른쪽 부분의 리스트와 같이 적용되는 스타일 코드이기 때문이다. */
     /* display: block;  */
+    position: relative;
     height: 270px;
     padding: 10px;
     overflow-y: scroll; /* y축으로 overflow 되었을 때 스크롤을 명령하는 스타일 코드, 스크롤바 모양은 브라우저마다 다르고 운영체제마다 다르다. 스크롤 디자인을 바꾸는 css 는 아직 표준이 아니다. 불완전함 */
@@ -292,8 +311,10 @@
     margin-top: 10px;
 }
 
-.item-list-staged .btn-cancel {
+.item-list-staged .div-for-btn-css-design {
+    position: relative;
     padding: 10px;
+    height: 70px;
 }
 
 .item-list-staged .item-img,
@@ -313,17 +334,46 @@
     line-height: 50px;
 }
 
+.item-list-staged .div-for-btn-stock-position {
+    position: absolute;
+    right: 35px;
+}
+
 .item-list-staged .num-counter {
-    float: right;
+    position: absolute;
+    top: 7px;
+    right: -5px;
+    /* float: right; */
+
     /* num-counter 텍스트를 정렬하기 위함 */
     display: flex; 
     justify-content: center;
     align-items: center;
     /* num-counter 텍스트를 정렬하기 위함 */
-    width: 50px;
-    height: 50px;
-    border: 1px solid #BDBDBD;
+
+    width: 35px;
+    height: 35px;
+    border: 0.5px solid #BDBDBD;
     border-radius: 5px;
+}
+
+.item-list-staged .btn-stock-plus,
+.item-list-staged .btn-stock-minus {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+
+    font-size: 10px;
+}
+
+.item-list-staged .btn-stock-plus {
+    top: 17px;
+    right: -25px;
+}
+
+.item-list-staged .btn-stock-minus {
+    top: 17px;
+    right: 35px;
 }
 
 .app-section-payment .sub-section-payment {

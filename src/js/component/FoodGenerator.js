@@ -228,11 +228,15 @@ class FoodGenerator {
                             // staged 리스트에 아이템 정보리스트 추가
                             const stagedItem = document.createElement("li");
                             const stagedItemTemplate = `
-                                <button class="btn-cancel" type="button">
+                                <div class="div-for-btn-css-design">
                                     <img class="item-img" src="./src/image/${item.dataset.img}.png" alt="${item.dataset.img}">
                                     <strong class="item-name">${item.dataset.item}</strong>
-                                    <span class="num-counter">1</span>
-                                </button>
+                                    <div class="div-for-btn-stock-position">
+                                        <span class="num-counter">1</span>
+                                        <button class="btn-stock-plus">+</button>
+                                        <button class="btn-stock-minus">-</button>
+                                    <div>
+                                </div>
                                 `;
 
                             stagedItem.innerHTML = stagedItemTemplate;
