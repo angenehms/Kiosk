@@ -516,18 +516,6 @@
     margin-bottom: 5px;
 }
 
-.order-date {
-
-}
-
-.order-number {
-
-}
-
-.amount-payed {
-
-}
-
 #modal-receipt .div-for-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
