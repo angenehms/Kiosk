@@ -169,7 +169,7 @@ class FoodGenerator {
                                     }
                                 });
 
-                                [...nodeStagedElement].forEach((item) => {
+                                [...nodeStagedElement].forEach((item) => { // num-counter 박스 숫자 변화
 
                                     if ( item.querySelector(".item-name").textContent === nameOfTargetedMenu) {
                                         item.querySelector(".num-counter").textContent ++;
@@ -193,7 +193,7 @@ class FoodGenerator {
 
                                 targetEl.parentNode.className += " sold-out"; // 재고 소진시 품절 디자인 입히는 코드
 
-                                [...nodeStagedElement].forEach((item) => {
+                                [...nodeStagedElement].forEach((item) => { // num-counter 박스 숫자 변화
 
                                     if ( item.querySelector(".item-name").textContent === nameOfTargetedMenu) {
 
@@ -244,6 +244,17 @@ class FoodGenerator {
 
                             document.querySelector(".item-list-staged").appendChild(stagedItem);
 
+                            const btnStockPlus = document.querySelectorAll(".btn-stock-plus");
+                            const btnStockMinus = document.querySelectorAll(".btn-stock-minus");
+
+                            [...btnStockPlus].forEach((item) => {
+                                item.addEventListener("click", btnStockPlusFunction);
+                            });
+                            
+                            [...btnStockMinus].forEach((item) => {
+                                item.addEventListener("click", btnStockMinusFunction);
+                            });
+                    
                         }
 
                     } else { // 살돈 없다
@@ -275,6 +286,86 @@ class FoodGenerator {
 
         btnPagePlus.addEventListener("click", pagePlusFunction);
         btnPageMinus.addEventListener("click", pageMinusFunction);
+
+
+        function btnStockPlusFunction (e) { // staged 아이템 + 버튼
+
+            const targetElParentElement = e.currentTarget.parentElement.parentElement
+            const nameOfTargetEl = targetElParentElement.querySelector(".item-name").textContent;
+
+            // 클릭시 잔액, 총결제금액 변동처리 해야함
+    
+            data.forEach((item) => { // count 는 정수만 와야함 : 상식상 상품 수가 소수인 경우는 이해되지 않음.
+
+                if ( nameOfTargetEl === item.name ) {
+
+                    if ( item.count >= 2 ) {
+
+                        item.count --;
+                        targetElParentElement.querySelector(".num-counter").textContent ++;
+
+                    } else if ( item.count === 1 ) {
+
+                        item.count --;
+                        targetElParentElement.querySelector(".num-counter").textContent ++;
+
+                        // 스크린 내 item-list 에 품절표시 해야함
+
+                    } else {
+
+                        alert("품절되었습니다!");
+
+                    }
+
+                } 
+
+            })
+
+        }
+
+
+        function btnStockMinusFunction (e) { // staged 아이템 - 버튼
+
+            const targetElParentElement = e.currentTarget.parentElement.parentElement
+            const nameOfTargetEl = targetElParentElement.querySelector(".item-name").textContent;
+
+            // 클릭시 잔액, 총결제금액 변동처리 해야함
+            // 카운트 고려해서 품절표시 지워야함
+
+            data.forEach((item) => { // count 는 정수만 와야함 : 상식상 상품 수가 소수인 경우는 이해되지 않음.
+
+                initialDataStock.forEach((element) => {
+
+                    if ( element.name === item.name ) {
+
+                        if ( nameOfTargetEl === item.name ) {
+
+                            if ( item.count < element.count - 1 ) {
+        
+                                item.count ++;
+                                targetElParentElement.querySelector(".num-counter").textContent --;
+        
+                            } else if ( item.count === element.count - 1 ) {
+        
+                                item.count ++;
+
+                                // staged 에서 목록 제거 해야함
+                                // console.log(stagedList)
+
+                            }
+        
+                        } 
+
+                    }
+
+                    
+
+                })
+
+            })
+        }
+
+ 
 
 
         // 초기화 함수
