@@ -9,7 +9,7 @@ class FoodGenerator {
 
         const appPayment = document.querySelector(".app-section-payment");
         this.stagedList = appPayment.querySelector(".item-list-staged");
-        this.amountTotal = appPayment.querySelector(".amount-total") // 총 가격 span 태그
+        this.amountTotal = appPayment.querySelector(".amount-total"); // 총 가격 span 태그
 
         const appPayedModal = document.querySelector("#modal-payed");
         this.btnUnissueReceipt = appPayedModal.querySelector(".btn-unissue-receipt"); // 미발행버튼
@@ -100,19 +100,19 @@ class FoodGenerator {
 
                 if ( currentPageNumber <= 1 ) {
                     // btnPageMinus.setAttribute("disabled", "");
-                    btnPageMinus.className = "ir"
+                    btnPageMinus.className = "ir";
                 } else {
                     // btnPageMinus.removeAttribute("disabled");
-                    btnPageMinus.className = "btn-page-minus"
+                    btnPageMinus.className = "btn-page-minus";
                 }
 
                 if ( currentPageNumber >= lastIndexOfItem ) {
                     // btnPagePlus.setAttribute("disabled", "");
-                    btnPagePlus.className = "ir"
+                    btnPagePlus.className = "ir";
 
                 } else {
                     // btnPagePlus.removeAttribute("disabled");
-                    btnPagePlus.className = "btn-page-plus"
+                    btnPagePlus.className = "btn-page-plus";
                 }
 
                 // ** 페이지에 따라 화살표 보이기도 말기도 하게하는 코드 **
@@ -132,8 +132,8 @@ class FoodGenerator {
 
             btnsItem.forEach((item) => {      
 
-                if ( parseInt(item.dataset.count) <= 0 ) { // 초기 랜더링시 재고가 0 이하일 경우 품절 표시
-                    item.parentElement.className += " sold-out"
+                if ( parseInt(item.dataset.count) <= 0 ) { // 랜더링시 재고가 0 이하일 경우 품절 표시
+                    item.parentElement.className += " sold-out";
                 }
 
                 item.addEventListener("click", (e) => {
@@ -152,7 +152,7 @@ class FoodGenerator {
                     if ( balanceVal >= targetEl.dataset.price ) { // 살돈 있다
 
                         balance.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(targetEl.dataset.price)) + " 원"; // 선택상품 가격에 대한 잔액계산
-                        amountTotal.textContent = new Intl.NumberFormat().format(totalVal + parseInt(targetEl.dataset.price)) + " 원" // + 연산은 - 연산보다 더 엄격히 타입을 분명히 해야한다. + 연산은 텍스트 끼리 합쳐주는 연산도 가능하기 떄문에 숫자인지 스트링인지 명시해주어야한다.
+                        amountTotal.textContent = new Intl.NumberFormat().format(totalVal + parseInt(targetEl.dataset.price)) + " 원"; // + 연산은 - 연산보다 더 엄격히 타입을 분명히 해야한다. + 연산은 텍스트 끼리 합쳐주는 연산도 가능하기 떄문에 숫자인지 스트링인지 명시해주어야한다.
 
                         if ( arrayStagedMenuName.includes(nameOfTargetedMenu) ) { // staged 에 이미 있는 아이템일 경우
 
@@ -290,7 +290,7 @@ class FoodGenerator {
 
         function btnStockPlusFunction (e) { // staged 아이템 + 버튼
 
-            const targetElParentElement = e.currentTarget.parentElement.parentElement
+            const targetElParentElement = e.currentTarget.parentElement.parentElement;
             const nameOfTargetEl = targetElParentElement.querySelector(".item-name").textContent;
             const balanceTag = document.querySelector(".amount-balance");
             const balanceVal = parseInt(document.querySelector(".amount-balance").textContent.replaceAll(",", ""));
@@ -300,23 +300,29 @@ class FoodGenerator {
             data.forEach((item) => { // count 는 정수만 와야함 : 상식상 상품 수가 소수인 경우는 이해되지 않음.
 
                 if ( nameOfTargetEl === item.name ) {
-                    
-                    // 클릭시 잔액, 총결제금액 변동처리
-                    balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
-                    amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";
-                    
+                                       
                     if ( item.count >= 2 ) {
 
+                        balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
+                        amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";    
+
                         item.count --;
                         targetElParentElement.querySelector(".num-counter").textContent ++;
 
+                        renderItem();
+                        addBtnsEventWhenRerender();
+                        
                     } else if ( item.count === 1 ) {
 
+                        balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
+                        amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";    
+
                         item.count --;
                         targetElParentElement.querySelector(".num-counter").textContent ++;
 
-                        // 스크린 내 item-list 에 품절표시 해야함
-
+                        renderItem();
+                        addBtnsEventWhenRerender();
+                            
                     } else {
 
                         alert("품절되었습니다!");
@@ -332,7 +338,7 @@ class FoodGenerator {
 
         function btnStockMinusFunction (e) { // staged 아이템 - 버튼
 
-            const targetElParentElement = e.currentTarget.parentElement.parentElement
+            const targetElParentElement = e.currentTarget.parentElement.parentElement;
             const nameOfTargetEl = targetElParentElement.querySelector(".item-name").textContent;
             const balanceTag = document.querySelector(".amount-balance");
             const balanceVal = parseInt(document.querySelector(".amount-balance").textContent.replaceAll(",", ""));
@@ -354,18 +360,40 @@ class FoodGenerator {
                             amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal - parseInt(item.cost)) + " 원";
 
                             if ( item.count < element.count - 1 ) {
+
+                                if ( item.count === 0 ) { // staged 에서 수량이 max 재고의 최대치인데 - 버튼 눌렸을 때 발생해야하는 것
+                                    
+                                    item.count ++;
+                                    targetElParentElement.querySelector(".num-counter").textContent --;
+                                    renderItem();
+                                    addBtnsEventWhenRerender();
+
+                                } else {
+
+                                    item.count ++;
+                                    targetElParentElement.querySelector(".num-counter").textContent --;
+
+                                }
         
-                                item.count ++;
-                                targetElParentElement.querySelector(".num-counter").textContent --;
-        
-                            } else if ( item.count === element.count - 1 ) {
+                            } else if ( item.count === element.count - 1 ) { // staged 에서 수량이 1 남았는데 - 버튼을 누를 경우 발생해야하는 것
         
                                 item.count ++;
 
-                                // staged 에서 목록 제거 해야함
-                                // console.log(stagedList)
+                                document.querySelectorAll(".item-list-staged li").forEach((small) => { // staged 리스트에서 해당 아이템 목록 제거
+
+                                    if ( item.name === small.querySelector(".item-name").textContent ) {
+
+                                        document.querySelector(".item-list-staged").removeChild(small);
+
+                                    }
+                                    
+                                })
+
+                                renderItem();
+                                addBtnsEventWhenRerender();
 
                             }
+                            
         
                         } 
 
