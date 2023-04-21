@@ -431,6 +431,8 @@ class FoodGenerator {
 
             })
 
+            document.querySelector("#modal-receipt .item-list-staged").innerHTML = "";
+
             renderItem();
             addBtnsEventWhenRerender();
 
