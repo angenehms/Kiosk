@@ -300,34 +300,43 @@ class FoodGenerator {
             data.forEach((item) => { // count 는 정수만 와야함 : 상식상 상품 수가 소수인 경우는 이해되지 않음.
 
                 if ( nameOfTargetEl === item.name ) {
-                                       
-                    if ( item.count >= 2 ) {
 
-                        balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
-                        amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";    
+                    if ( item.cost <= balanceVal ) {
 
-                        item.count --;
-                        targetElParentElement.querySelector(".num-counter").textContent ++;
+                        if ( item.count >= 2 ) {
 
-                        renderItem();
-                        addBtnsEventWhenRerender();
-                        
-                    } else if ( item.count === 1 ) {
-
-                        balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
-                        amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";    
-
-                        item.count --;
-                        targetElParentElement.querySelector(".num-counter").textContent ++;
-
-                        renderItem();
-                        addBtnsEventWhenRerender();
+                            balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
+                            amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";    
+    
+                            item.count --;
+                            targetElParentElement.querySelector(".num-counter").textContent ++;
+    
+                            renderItem();
+                            addBtnsEventWhenRerender();
                             
+                        } else if ( item.count === 1 ) {
+    
+                            balanceTag.textContent = new Intl.NumberFormat().format(balanceVal - parseInt(item.cost)) + " 원";
+                            amountTotalTag.textContent = new Intl.NumberFormat().format(amountTotalVal + parseInt(item.cost)) + " 원";    
+    
+                            item.count --;
+                            targetElParentElement.querySelector(".num-counter").textContent ++;
+    
+                            renderItem();
+                            addBtnsEventWhenRerender();
+                                
+                        } else {
+    
+                            alert("품절되었습니다!");
+    
+                        }
+
                     } else {
 
-                        alert("품절되었습니다!");
+                        alert("잔액이 부족합니다! 소지금을 입금하세요!");
 
                     }
+                                       
 
                 } 
 
