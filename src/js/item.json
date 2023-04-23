@@ -24,18 +24,6 @@
         "count": 5
     },
     {
-        "name": "씨위드파스타",
-        "cost": 14000,
-        "img": "Seaweed_Pasta",
-        "count": 5
-    },
-    {
-        "name": "새우파스타",
-        "cost": 17000,
-        "img": "Shrimp_Pasta",
-        "count": 5
-    },
-    {
         "name": "시금치통닭",
         "cost": 28000,
         "img": "Spinach_Chicken",
@@ -51,6 +39,12 @@
         "name": "모듬곱창",
         "cost": 38000,
         "img": "Tripe_food",
+        "count": 5
+    },
+    {
+        "name": "새우파스타",
+        "cost": 17000,
+        "img": "Shrimp_Pasta",
         "count": 5
     },
     {
@@ -81,6 +75,12 @@
         "name": "탄탄면",
         "cost": 11300,
         "img": "Tantan_Myeon",
+        "count": 5
+    },
+    {
+        "name": "씨위드파스타",
+        "cost": 14000,
+        "img": "Seaweed_Pasta",
         "count": 5
     },
     {
