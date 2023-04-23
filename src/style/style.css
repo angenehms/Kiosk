@@ -20,6 +20,10 @@
     overflow: hidden; /* 넘치는 부분은 숨겨줘라 */
 }
 
+#app {
+    height: 80vh;
+}
+
 .logo-img, 
 .item-img {
     display: block;
@@ -30,6 +34,7 @@
     margin-top: 20px;
     background: linear-gradient(white, rgb(228, 181, 136));
     padding-bottom: 34px;
+    height: 80vh;
 }
 
 .div-for-app-section-flex {
@@ -400,7 +405,7 @@
 
 #contact-me {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 #contact-me .copyright {
