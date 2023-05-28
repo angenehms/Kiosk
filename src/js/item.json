@@ -88,5 +88,17 @@
         "cost": 26000,
         "img": "Chocolate_Set",
         "count": 5
+    },
+    {
+        "name": "낙곱새",
+        "cost": 11000,
+        "img": "Octopus_Tripe_Shrimp_Soup",
+        "count": 5
+    },
+    {
+        "name": "얼큰국밥",
+        "cost": 10000,
+        "img": "Spicy_Rice_Soup",
+        "count": 5
     }
 ]
